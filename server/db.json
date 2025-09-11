@@ -1,0 +1,267 @@
+{
+  "user": [
+    {
+      "id": "admin",
+      "name": "Julien",
+      "password": "$2b$10$LZSdH5P131sL4I7ZVqOU7OCQut5GKHByVtWXFu6erfO9zmeTagXPC",
+      "role": "admin"
+    }
+  ],
+  "teammembers": {
+    "office": [
+      {
+        "id": 1,
+        "src": "images/photos/team/office/01.jpg",
+        "alt": "office01",
+        "lastname": "Dubois",
+        "surname": "Jeanne",
+        "occupation": "Secrétaire",
+        "contact": "jeanne.dubois@adct-asso.org"
+      },
+      {
+        "id": 2,
+        "src": "images/photos/team/office/02.jpg",
+        "alt": "Concert",
+        "lastname": "Dupond",
+        "surname": "Jérome",
+        "occupation": "Chargé d'accueil",
+        "contact": "jerome.dupond@adct-asso.org"
+      },
+      {
+        "id": 3,
+        "src": "images/photos/team/office/03.jpg",
+        "alt": "Concert",
+        "lastname": "Robert",
+        "surname": "Linda",
+        "occupation": "Responsable des ressources humaines",
+        "contact": "linda.robert@adct-asso.org"
+      }
+    ],
+    "administration": [
+      {
+        "id": 1,
+        "src": "images/photos/team/administration/04.jpg",
+        "alt": "Concert",
+        "lastname": "Jones",
+        "surname": "Robert",
+        "occupation": "Président du conseil d'administration",
+        "contact": "robert.jones@villeurbane-leteil.fr"
+      },
+      {
+        "id": 2,
+        "src": "images/photos/team/administration/05.jpg",
+        "alt": "Concert",
+        "lastname": "Richard",
+        "surname": "Barbara",
+        "occupation": "Vice-présidente",
+        "contact": "barbara.richard@adct-asso.org"
+      },
+      {
+        "id": 3,
+        "src": "images/photos/team/administration/06.jpg",
+        "alt": "Concert",
+        "lastname": "Miller",
+        "surname": "Richard",
+        "occupation": "Secrétaire",
+        "contact": "richard.miller@adct-asso.org"
+      },
+      {
+        "id": 4,
+        "src": "images/photos/team/administration/07.jpg",
+        "alt": "Concert",
+        "lastname": "Leroy",
+        "surname": "Jennifer",
+        "occupation": "Trésorière",
+        "contact": "jennifer.leroy@adct-asso.org"
+      },
+      {
+        "id": 5,
+        "src": "images/photos/team/administration/08.jpg",
+        "alt": "Concert",
+        "lastname": "Wilson",
+        "surname": "Joseph",
+        "occupation": "Administrateur ",
+        "contact": "joseph.wilson@adct-asso.org"
+      },
+      {
+        "id": 6,
+        "src": "images/photos/team/administration/09.jpg",
+        "alt": "Concert",
+        "lastname": "Doe",
+        "surname": "Marion",
+        "occupation": "Directrice Générale",
+        "contact": "jane.doe@adct-asso.org"
+      },
+      {
+        "id": 6,
+        "src": "images/photos/team/administration/10.jpg",
+        "alt": "Concert",
+        "lastname": "Lefebvre",
+        "surname": "Paul",
+        "occupation": "Administrateur indépendant ",
+        "contact": "paul.lefebvre@adct-asso.org"
+      },
+      {
+        "id": 7,
+        "src": "images/photos/team/administration/11.jpg",
+        "alt": "Concert",
+        "lastname": "White",
+        "surname": "Dorothy",
+        "occupation": "Présidente de comité d'audit",
+        "contact": "dorothy.white@adct-asso.org"
+      },
+      {
+        "id": 8,
+        "src": "images/photos/team/administration/12.jpg",
+        "alt": "Concert",
+        "lastname": "Doe",
+        "surname": "John",
+        "occupation": "Président de comité de rémunération",
+        "contact": "john.doe@adct-asso.org"
+      },
+      {
+        "id": 9,
+        "src": "images/photos/team/administration/13.jpg",
+        "alt": "Concert",
+        "lastname": "Simon",
+        "surname": "Susanne",
+        "occupation": "Administratrice honoraire",
+        "contact": "susanne.simon@adct-asso.org"
+      },
+      {
+        "id": 10,
+        "src": "images/photos/team/administration/14.jpg",
+        "alt": "Concert",
+        "lastname": "Anderson",
+        "surname": "Charles",
+        "occupation": "Observateur",
+        "contact": "charles.anderson@adct-asso.org"
+      },
+      {
+        "id": 11,
+        "src": "images/photos/team/administration/15.jpg",
+        "alt": "Concert",
+        "lastname": "Laurent",
+        "surname": "Marguerite",
+        "occupation": "Administratrice de la collectivité",
+        "contact": "marguerite.laurent@adct-asso.org"
+      }
+    ],
+    "instruction": [
+      {
+        "id": 1,
+        "src": "images/photos/team/instruction/16.jpg",
+        "alt": "Concert",
+        "lastname": "Jackson",
+        "surname": "Daniel",
+        "occupation": "Président du comité d'instruction",
+        "contact": "daniel.jackson@adct-asso.org"
+      }
+    ],
+    "scientific": [
+      {
+        "id": 1,
+        "src": "images/photos/team/scientific/17.jpg",
+        "alt": "Concert",
+        "lastname": "Durand",
+        "surname": "Elizabeth",
+        "occupation": "Présidente du comité scientifique",
+        "contact": "elizabeth.durand@villeurbane-leteil.fr"
+      },
+      {
+        "id": 2,
+        "src": "images/photos/team/scientific/18.jpg",
+        "alt": "Concert",
+        "lastname": "Taylor",
+        "surname": "Thomas",
+        "occupation": "Vice-président",
+        "contact": "thomas.taylor@adct-asso.org"
+      },
+      {
+        "id": 3,
+        "src": "images/photos/team/scientific/19.jpg",
+        "alt": "Concert",
+        "lastname": "Bernard",
+        "surname": "Mary",
+        "occupation": "Secrétaire scientifique",
+        "contact": "mary.bernard@dadct-asso.org"
+      },
+      {
+        "id": 4,
+        "src": "images/photos/team/scientific/20.jpg",
+        "alt": "Concert",
+        "lastname": "Johnson",
+        "surname": "Michael",
+        "occupation": "Membre du comité scientifique",
+        "contact": "michael.johnson@adct-asso.org"
+      },
+      {
+        "id": 5,
+        "src": "images/photos/team/scientific/21.jpg",
+        "alt": "Concert",
+        "lastname": "Moreau",
+        "surname": "Charlotte",
+        "occupation": "Experte thématique ",
+        "contact": "charlotte.moreau@adct-asso.org"
+      },
+      {
+        "id": 6,
+        "src": "images/photos/team/scientific/22.jpg",
+        "alt": "Concert",
+        "lastname": "Petit",
+        "surname": "Maria",
+        "occupation": "Rapporteuse",
+        "contact": "maria.petit@adct-asso.org"
+      },
+      {
+        "id": 7,
+        "src": "images/photos/team/scientific/23.jpg",
+        "alt": "Concert",
+        "lastname": "Brown",
+        "surname": "Brigitte",
+        "occupation": "Représentante d'institution ",
+        "contact": "brigitte.brown@adct-asso.org"
+      },
+      {
+        "id": 8,
+        "src": "images/photos/team/scientific/24.jpg",
+        "alt": "Concert",
+        "lastname": "Davis",
+        "surname": "Samuel",
+        "occupation": "Conseiller scientifique",
+        "contact": "samuel.davis@adct-asso.org"
+      }
+    ]
+  },
+  "products": [],
+  "carouselText": [
+    {
+      "content": "HOMINGG vo lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tationullamcorper suscipit lobortis nisl ut aliquip. (Slide 1)",
+      "id": 0
+    },
+    {
+      "content": "Génèsis OKaysey loremo ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tationullamcorper suscipit lobortis nisl ut aliquip. (Slide 2)",
+      "id": 1
+    },
+    {
+      "content": "This is the text for Teams OK. L'équipe",
+      "id": 2
+    },
+    {
+      "content": "This is the text for Places OKa. Villes",
+      "id": 3
+    }
+  ],
+  "genesisText": [
+    {
+      "content": "Genesi0  lorem ipsum dolor sit amettre, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tationullamcorper suscipit lobortis nisl ut aliquip.",
+      "id": 1
+    }
+  ],
+  "reasonText": [
+    {
+      "id": 1,
+      "content": "A l’ADCT, bis nous croyons que la coopération des villes et des campagnes\n        peut apporter des solutions à nos défis climatiques et sociaux, elles\n        ont la capacité de se protéger mutuellement et de réduire les inégalités\n        croissantes. Nous travaillons à mobiliser les forces de chaque\n        territoire pour apporter des solutions à des problématiques partagées\n        (décrochage de la jeunesse, emploi, accès à la culture, à une\n        alimentation durable…).\n        <br />\n        <br />\n        Nous mettons en lien les associations, les entreprises, les\n        collectivités et les habitants de deux territoires et nous les\n        accompagnons pour imaginer des actions concrètes. En favorisant des\n        rencontres et des projets communs entre territoires, l’ADCT vise à\n        faciliter une compréhension accrue des enjeux et des réalités des\n        habitants, qui contribue à l’émergence d’une nouvelle relation\n        ville-campagne qui résiste au repli sur soi.\n        <br />\n        <br />\n        Notre action s’inscrit entre Le Teil, une commune d’Ardèche de 9000\n        habitants, et Villeurbanne, ville de 160 000 habitants au sein de la\n        métropole de Lyon. Malgré leur différence de taille, et leur\n        éloignement,XXXXX\n        <br />\n        <br />\n        Partager nos apprentissages – recherche"
+    }
+  ]
+}

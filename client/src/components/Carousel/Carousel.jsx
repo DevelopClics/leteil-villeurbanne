@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Carousel } from "react-bootstrap";
 import axios from "axios";
 import { useAuth } from "../../context/AuthContext";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import "./Carousel.css";
 
 const CarouselComponent = ({
@@ -69,10 +71,13 @@ const CarouselComponent = ({
       <Carousel controls={true} indicators={true}>
         {slides.map((slide, index) => (
           <Carousel.Item key={index}>
-            <img
+            <LazyLoadImage
               src={`${import.meta.env.BASE_URL}${slide.src}`}
               alt={slide.alt}
               className="d-block w-100 hero-image"
+              effect="blur"
+              width="100%"
+              height="100%"
             />
           </Carousel.Item>
         ))}

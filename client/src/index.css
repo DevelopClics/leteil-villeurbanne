@@ -95,3 +95,30 @@ a:hover {
     --breadcrumb-padding-x: 18rem;
   }
 }
+
+
+/* Custom button styles */
+.btn-salmon {
+  background-color: var(--secondary-color) !important;
+  border-color: var(--secondary-color) !important;
+  color: white !important;
+  font-weight: bold;
+}
+
+.btn-salmon:hover {
+  background-color: #e08a7a !important; /* A slightly darker salmon for hover */
+  border-color: #e08a7a !important;
+  color: white;
+}
+
+.btn-teal {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+.btn-teal:hover {
+  background-color: #004354; /* A slightly darker teal for hover */
+  border-color: #004354;
+  color: white;
+}

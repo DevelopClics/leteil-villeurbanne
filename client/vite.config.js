@@ -1,8 +1,15 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
-// https://vite.dev/config/
-export default defineConfig(({ command }) => ({
+// https://vitejs.dev/config/
+export default defineConfig({
   plugins: [react()],
-  base: command === "serve" ? "/" : "/front-leteil-villeurbanne/",
-}));
+  server: {
+    port: 5174, // Changed port
+    headers: {
+      'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+      'Pragma': 'no-cache',
+      'Expires': '0',
+    },
+  },
+})

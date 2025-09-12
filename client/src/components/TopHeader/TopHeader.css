@@ -61,3 +61,10 @@
 /* xxl */
 @media (min-width: 1400px) {
 }
+
+.no-outline,
+.no-outline:focus,
+.no-outline:active {
+  outline: none !important;
+  box-shadow: none !important;
+}

@@ -1,6 +1,7 @@
 import React from "react";
-import { Container, Row, Col, Image, Stack } from "react-bootstrap";
+import { Container, Row, Col, Image, Stack, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 import logoTzc from "../../assets/images/logo-le-teil-villeurbanne.svg";
 import facebookIcon from "../../assets/images/icons/facebook-icon.svg";
@@ -9,11 +10,32 @@ import mailIcon from "../../assets/images/icons/mail-icon.svg";
 import "./TopHeader.css";
 
 const TopHeader = ({ socialIconsRef, socialIconsContainerRef }) => {
+  const { isAuthenticated, logout } = useAuth();
+
+  const handleLogout = () => {
+    logout();
+  };
+
   return (
     <div className="top-header pt-3 p-md-5">
       <Container>
         <Row className="align-items-center ">
-          <Col xl={4} className="d-none d-xl-block"></Col>
+          <Col xl={4} className="d-none d-xl-block">
+            {isAuthenticated && (
+              <Stack
+                direction="horizontal"
+                className="justify-content-center justify-content-md-start social-icons-container"
+              >
+                <Button
+                  variant=""
+                  onClick={handleLogout}
+                  className="btn-salmon no-outline"
+                >
+                  Se déconnecter
+                </Button>
+              </Stack>
+            )}
+          </Col>
           <Col
             xs={12}
             md={6}

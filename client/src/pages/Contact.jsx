@@ -9,7 +9,7 @@ import CarouselComponent from "../components/Carousel/Carousel";
 
 export default function Contact({ isNavbarHovered }) {
   const TITLE = "Nous contacter";
-  const SUB = "Nous rejoindre";
+  const SUB = "Nous contacter";
   const SUBTEXT =
     "Genesia lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tationullamcorper suscipit lobortis nisl ut aliquip.";
   return (
@@ -19,6 +19,7 @@ export default function Contact({ isNavbarHovered }) {
         title={SUB}
         text={SUBTEXT}
         slides={Datas.carouselSlides.welcome}
+        carouselTextId={11}
       />
       <Breadcrumbscontact breadcrumbsnav={TITLE} />
       <section className="reason-section">

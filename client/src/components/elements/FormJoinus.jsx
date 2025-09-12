@@ -282,4 +282,4 @@ const FormJoinus = () => {
   );
 };
 
-export default FormContact;
+export default FormJoinus;

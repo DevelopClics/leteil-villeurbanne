@@ -26,8 +26,8 @@ export default function Places({ isNavbarHovered }) {
         <Container className="app-container-padding">
           <Row>
             <Col>
-              <div className="d-flex justify-content-center mt-4"></div>
-              <h2>Les villes</h2>
+              <h2>{SUB}</h2>
+
               {Datas.citiesProjects.map((item) => (
                 <ProjectLayout
                   key={item.id}

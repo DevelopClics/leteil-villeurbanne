@@ -19,13 +19,14 @@ export default function JoinContact({ isNavbarHovered }) {
         title={SUB}
         text={SUBTEXT}
         slides={Datas.carouselSlides.welcome}
+        carouselTextId={10}
       />
       <Breadcrumbscontact breadcrumbsnav={TITLE} />
-      <section className="reason-section">
+      <section className="reason-section" style={{ paddingTop: "50px" }}>
         <Container className="app-container-padding">
           <Row>
             <Col>
-              <h2>{TITLE}</h2>
+              <h2>{SUB}</h2>
               <p>
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
                 diam nonummy nibh euismod tincidunt ut laoreet dolore magna

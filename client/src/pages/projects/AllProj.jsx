@@ -10,6 +10,8 @@ import Datas from "../../components/datas/Datas.json";
 import TeamCard from "../../components/Cards/TeamCard";
 
 import EditableTitle from "../../components/EditableTitle";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 export default function AllProj({ isNavbarHovered }) {
   const XS = 12;
@@ -30,7 +32,7 @@ export default function AllProj({ isNavbarHovered }) {
       />
 
       <Breadcrumbs breadcrumbsnav="Les projets" breadcrumbssub={SUB} />
-      <section className="reason-section">
+      <section className="reason-section" style={{ paddingTop: "50px" }}>
         <Container className="app-container-padding">
           <Row>
             <Col>
@@ -50,10 +52,14 @@ export default function AllProj({ isNavbarHovered }) {
                       <div className="project-category-label">
                         {item.category}
                       </div>
-                      <img
+
+                      <LazyLoadImage
+                        wrapperClassName="square-img"
                         src={`${import.meta.env.BASE_URL}${item.src}`}
                         alt={item.alt}
-                        className="square-img"
+                        effect="blur"
+                        width="100%"
+                        height="100%"
                       />
                       <div className="project-info-box">
                         <h4 className="project-info-title">{item.title}</h4>

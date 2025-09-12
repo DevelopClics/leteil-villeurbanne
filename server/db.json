@@ -11,10 +11,39 @@
     "office": [
       {
         "id": 1,
+        "src": "images/photos/team/office/1757684514260-222.jpg",
+        "alt": "photo de Bernadette Dubosc",
+        "lastname": "Dubosc",
+        "surname": "Bernadette",
+        "occupation": "Secrétaire",
+        "contact": "bernadette.dubosc@adct-asso.org"
+      },
+      {
+        "id": 2,
+        "src": "images/photos/team/office/1757684525726-25.jpg",
+        "alt": "Concert",
+        "lastname": "Dupond",
+        "surname": "Jean",
+        "occupation": "Chargé d'accueil",
+        "contact": "jerome.dupond@adct-asso.org"
+      },
+      {
+        "id": 3,
+        "src": "images/photos/team/office/03.jpg",
+        "alt": "Concert",
+        "lastname": "Robert",
+        "surname": "Linda",
+        "occupation": "Responsable des ressources humaines",
+        "contact": "linda.robert@adct-asso.org"
+      }
+    ],
+    "employees": [
+      {
+        "id": 1,
         "src": "images/photos/team/office/01.jpg",
         "alt": "office01",
         "lastname": "Dubois",
-        "surname": "Jeanne",
+        "surname": "Sylvia",
         "occupation": "Secrétaire",
         "contact": "jeanne.dubois@adct-asso.org"
       },
@@ -23,7 +52,7 @@
         "src": "images/photos/team/office/02.jpg",
         "alt": "Concert",
         "lastname": "Dupond",
-        "surname": "Jérome",
+        "surname": "Jean",
         "occupation": "Chargé d'accueil",
         "contact": "jerome.dupond@adct-asso.org"
       },
@@ -51,7 +80,7 @@
         "id": 2,
         "src": "images/photos/team/administration/05.jpg",
         "alt": "Concert",
-        "lastname": "Richard",
+        "lastname": "Richardin",
         "surname": "Barbara",
         "occupation": "Vice-présidente",
         "contact": "barbara.richard@adct-asso.org"
@@ -60,7 +89,7 @@
         "id": 3,
         "src": "images/photos/team/administration/06.jpg",
         "alt": "Concert",
-        "lastname": "Miller",
+        "lastname": "Muller",
         "surname": "Richard",
         "occupation": "Secrétaire",
         "contact": "richard.miller@adct-asso.org"
@@ -93,7 +122,7 @@
         "contact": "jane.doe@adct-asso.org"
       },
       {
-        "id": 6,
+        "id": 7,
         "src": "images/photos/team/administration/10.jpg",
         "alt": "Concert",
         "lastname": "Lefebvre",
@@ -102,7 +131,7 @@
         "contact": "paul.lefebvre@adct-asso.org"
       },
       {
-        "id": 7,
+        "id": 8,
         "src": "images/photos/team/administration/11.jpg",
         "alt": "Concert",
         "lastname": "White",
@@ -111,7 +140,7 @@
         "contact": "dorothy.white@adct-asso.org"
       },
       {
-        "id": 8,
+        "id": 12,
         "src": "images/photos/team/administration/12.jpg",
         "alt": "Concert",
         "lastname": "Doe",
@@ -214,16 +243,16 @@
         "contact": "maria.petit@adct-asso.org"
       },
       {
-        "id": 7,
+        "id": 9,
         "src": "images/photos/team/scientific/23.jpg",
         "alt": "Concert",
-        "lastname": "Brown",
+        "lastname": "Tonus",
         "surname": "Brigitte",
         "occupation": "Représentante d'institution ",
         "contact": "brigitte.brown@adct-asso.org"
       },
       {
-        "id": 8,
+        "id": 10,
         "src": "images/photos/team/scientific/24.jpg",
         "alt": "Concert",
         "lastname": "Davis",
@@ -240,7 +269,7 @@
       "id": 0
     },
     {
-      "content": "Génèsis OKaysey loremo ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tationullamcorper suscipit lobortis nisl ut aliquip. (Slide 2)",
+      "content": "Génèsis loremo ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tationullamcorper suscipit lobortis nisl ut aliquip. (Slide 2)",
       "id": 1
     },
     {
@@ -248,13 +277,45 @@
       "id": 2
     },
     {
-      "content": "This is the text for Places OKa. Villes",
+      "content": "This is the text for   Villes",
       "id": 3
+    },
+    {
+      "content": "This is the text for  All projects",
+      "id": 4
+    },
+    {
+      "content": "This is the text for  Culture",
+      "id": 5
+    },
+    {
+      "content": "This is the text for  Food",
+      "id": 6
+    },
+    {
+      "content": "This is the text for  Youth",
+      "id": 7
+    },
+    {
+      "content": "This is the text for  Economy",
+      "id": 8
+    },
+    {
+      "content": "Texte pour déposer un projet",
+      "id": 9
+    },
+    {
+      "content": "Texte pour nous rejoindre !",
+      "id": 10
+    },
+    {
+      "content": "Texte pour nous contacter !",
+      "id": 11
     }
   ],
   "genesisText": [
     {
-      "content": "Genesi0  lorem ipsum dolor sit amettre, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tationullamcorper suscipit lobortis nisl ut aliquip.",
+      "content": "A l’ADCT, nous croyons que la coopération des villes et des campagnes peut apporter des solutions à nos défis climatiques et sociaux, elles ont la capacité de se protéger mutuellement et de réduire les inégalités croissantes. Nous travaillons à mobiliser les forces de chaque territoire pour apporter des solutions à des problématiques partagées (décrochage de la jeunesse, emploi, accès à la culture, à une alimentation durable…).\n\nNous mettons en lien les associations, les entreprises, les collectivités et les habitants de deux territoires et nous les accompagnons pour imaginer des actions concrètes. En favorisant des rencontres et des projets communs entre territoires, l’ADCT vise à faciliter une compréhension accrue des enjeux et des réalités des habitants, qui contribue à l’émergence d’une nouvelle relation ville-campagne qui résiste au repli sur soi.\n\nNotre action s’inscrit entre Le Teil, une commune d’Ardèche de 9000 habitants, et Villeurbanne, ville de 160 000 habitants au sein de la métropole de Lyon. Malgré leur différence de taille, et leur éloignement,XXXXX\n\nPartager nos apprentissages – recherche",
       "id": 1
     }
   ],
@@ -262,6 +323,18 @@
     {
       "id": 1,
       "content": "A l’ADCT, bis nous croyons que la coopération des villes et des campagnes\n        peut apporter des solutions à nos défis climatiques et sociaux, elles\n        ont la capacité de se protéger mutuellement et de réduire les inégalités\n        croissantes. Nous travaillons à mobiliser les forces de chaque\n        territoire pour apporter des solutions à des problématiques partagées\n        (décrochage de la jeunesse, emploi, accès à la culture, à une\n        alimentation durable…).\n        <br />\n        <br />\n        Nous mettons en lien les associations, les entreprises, les\n        collectivités et les habitants de deux territoires et nous les\n        accompagnons pour imaginer des actions concrètes. En favorisant des\n        rencontres et des projets communs entre territoires, l’ADCT vise à\n        faciliter une compréhension accrue des enjeux et des réalités des\n        habitants, qui contribue à l’émergence d’une nouvelle relation\n        ville-campagne qui résiste au repli sur soi.\n        <br />\n        <br />\n        Notre action s’inscrit entre Le Teil, une commune d’Ardèche de 9000\n        habitants, et Villeurbanne, ville de 160 000 habitants au sein de la\n        métropole de Lyon. Malgré leur différence de taille, et leur\n        éloignement,XXXXX\n        <br />\n        <br />\n        Partager nos apprentissages – recherche"
+    }
+  ],
+  "carouselImages": [
+    {
+      "id": 1,
+      "src": "images/photos/carousel/team/AdobeStock_277443017.jpeg",
+      "alt": "Team 1"
+    },
+    {
+      "id": 2,
+      "src": "images/photos/carousel/team/AdobeStock_336269917.jpeg",
+      "alt": "Team 2"
     }
   ]
 }

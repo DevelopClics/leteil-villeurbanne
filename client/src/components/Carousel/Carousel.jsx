@@ -321,11 +321,14 @@ const CarouselComponent = ({
                 {isEditable && (
                   <div className="carousel-admin-buttons">
                     <Button variant="success" size="sm" onClick={handleCreate}>
-                      Add New
+                      Ajouter
                     </Button>
                   </div>
                 )}
-                <p>No slides available. Click "Add New" to add one.</p>
+                <p>
+                  Aucune image. Cliquer sur le bouton "Ajouter" pour en afficher
+                  une.
+                </p>
               </div>
             </Carousel.Item>
           )}
@@ -377,9 +380,13 @@ const CarouselComponent = ({
         <div className="carousel-edit-form-container">
           <div className="container">
             <Form>
-              <h4>{isCreatingNewSlide ? "Add New Slide" : "Edit Slide"}</h4>
+              <h4>
+                {isCreatingNewSlide
+                  ? "Ajouter une nouvelle image"
+                  : "Modifier l'image"}
+              </h4>
               <Form.Group className="mb-3">
-                <Form.Label>Image File</Form.Label>
+                <Form.Label>Fichier image</Form.Label>
                 <Form.Control
                   type="file"
                   name="image"
@@ -387,7 +394,9 @@ const CarouselComponent = ({
                 />
               </Form.Group>
               <Form.Group className="mb-3">
-                <Form.Label>Alt Text</Form.Label>
+                <Form.Label>
+                  Texte alternatif (Alt) au cas où l'imge ne s'affiche pas
+                </Form.Label>
                 <Form.Control
                   type="text"
                   name="alt"
@@ -400,10 +409,10 @@ const CarouselComponent = ({
                 onClick={handleSaveSlideClick}
                 className="me-2"
               >
-                Save Changes
+                Sauvegarder
               </Button>
               <Button variant="secondary" onClick={handleCancelSlideClick}>
-                Cancel
+                Annuler
               </Button>
             </Form>
           </div>

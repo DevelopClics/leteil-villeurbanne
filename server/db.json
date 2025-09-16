@@ -260,29 +260,47 @@
     "home": [
       {
         "id": 1,
-        "src": "images/photos/team/carousel/1757947655109-AdobeStock_570690849.jpeg",
+        "src": "images/photos/team/carousel/1758023443196-222.jpg",
         "alt": "Home1"
       }
     ],
     "genesis": [
       {
         "id": 1,
-        "src": "images/photos/carousel/team/AdobeStock_277443017.jpeg",
+        "src": "images/photos/team/carousel/1758023491491-AdobeStock_657203187.jpeg",
         "alt": "Home1"
       }
     ],
     "team": [
       {
         "id": 1,
-        "src": "images/photos/carousel/team/AdobeStock_277443017.jpeg",
+        "src": "images/photos/team/carousel/1758023531702-AdobeStock_336269917.jpeg",
         "alt": "Home1"
       }
     ],
     "city": [
       {
         "id": 1,
-        "src": "images/photos/carousel/team/AdobeStock_277443017.jpeg",
+        "src": "images/photos/team/carousel/1758023556019-AdobeStock_311575980.jpeg",
         "alt": "Home1"
+      }
+    ],
+    "projects": [
+      {
+        "src": "images/photos/team/carousel/1758023591690-AdobeStock_318346130.jpeg",
+        "id": 2
+      }
+    ],
+    "culture": [
+      {
+        "src": "images/photos/team/carousel/1758023624063-AdobeStock_128079957.jpeg",
+        "id": 3
+      }
+    ],
+    "welcome": [
+      {
+        "src": "images/photos/team/carousel/1758024370491-AdobeStock_505865128.jpeg",
+        "id": 4
       }
     ]
   },
@@ -292,47 +310,47 @@
       "id": 0
     },
     {
-      "content": "Génèsis loremo ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tationullamcorper suscipit lobortis nisl ut aliquip. (Slide 2)",
+      "content": "Génèse loremo ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tationullamcorper suscipit lobortis nisl ut aliquip. (Slide 2)",
       "id": 1
     },
     {
-      "content": "This is the text for Teams OK. L'équipe",
+      "content": "This is the text for Team.",
       "id": 2
     },
     {
-      "content": "This is the text for   Villes",
+      "content": "This is the text for  Cities",
       "id": 3
     },
     {
-      "content": "This is the text for  All projects",
+      "content": "This is the text for  All projects.",
       "id": 4
     },
     {
-      "content": "This is the text for  Culture",
+      "content": "This is the text for  Culture !",
       "id": 5
     },
     {
-      "content": "This is the text for  Food",
+      "content": "This is the text for  Food !",
       "id": 6
     },
     {
-      "content": "This is the text for  Youth",
+      "content": "This is the text for  Youth.",
       "id": 7
     },
     {
-      "content": "This is the text for  Economy",
+      "content": "This is the text for  Economy.",
       "id": 8
     },
     {
-      "content": "Texte pour déposer un projet",
+      "content": "Texte pour déposer un projet !",
       "id": 9
     },
     {
-      "content": "Texte pour nous rejoindre !",
+      "content": "Texte pour nous rejoindre",
       "id": 10
     },
     {
-      "content": "Texte pour nous contacter !",
+      "content": "Texte pour nous contacter",
       "id": 11
     }
   ],

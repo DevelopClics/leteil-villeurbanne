@@ -65,6 +65,7 @@ export default function Youth({ isNavbarHovered }) {
         text={SUBTEXT}
         category="youth"
         carouselTextId={7}
+        isEditable={isAuthenticated}
       />
       <Breadcrumbs breadcrumbsnav="Les projets" breadcrumbssub={SUB} />
 

@@ -1,5 +1,6 @@
 import { Container, Row, Col, Pagination } from "react-bootstrap";
 import { useState, useEffect } from "react";
+import { useAuth } from "../../context/AuthContext";
 import axios from "axios";
 
 import "../../App.css";
@@ -12,6 +13,7 @@ import ProjectLayout from "../../components/layouts/ProjectLayout";
 
 export default function Places({ isNavbarHovered }) {
   const SUB = "Les villes";
+  const { isAuthenticated } = useAuth();
   const [citiesProjects, setCitiesProjects] = useState([]);
 
   useEffect(() => {
@@ -34,6 +36,7 @@ export default function Places({ isNavbarHovered }) {
         title={SUB}
         category="city"
         carouselTextId={3}
+        isEditable={isAuthenticated}
       />
       <Breadcrumbs breadcrumbsnav="Qui sommes-nous ?" breadcrumbssub={SUB} />
       {/* <PageLayout title={SUB} DescriptionComponent={<FakeComp />} /> */}

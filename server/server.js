@@ -34,14 +34,19 @@ server.use((req, res, next) => {
     '/foodProjects',
     '/youthProjects',
     '/economyProjects',
+    '/allProjects',
   ];
 
   if (publicPaths.includes(req.path)) {
     return next();
   }
 
-  if (req.method === 'GET' && publicGetPaths.some(p => req.path.startsWith(p))) {
-    return next();
+  if (req.method === 'GET') {
+    const isPublicGetPath = publicGetPaths.some(p => req.path.startsWith(p));
+    console.log(`Path: ${req.path}, Is Public GET Path: ${isPublicGetPath}`);
+    if (isPublicGetPath) {
+      return next();
+    }
   }
 
   const authHeader = req.headers.authorization;

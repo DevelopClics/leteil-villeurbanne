@@ -45,6 +45,7 @@ export default function Culture({ isNavbarHovered }) {
         title={SUB}
         category="culture"
         carouselTextId={5}
+        isEditable={isAuthenticated}
       />
       <Breadcrumbs breadcrumbsnav="Nos projets" breadcrumbssub={SUB} />
       <section className="reason-section" style={{ paddingTop: "50px" }}>

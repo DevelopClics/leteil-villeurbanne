@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { useAuth } from "../context/AuthContext";
 import "../App.css";
 
 import Breadcrumbscontact from "../components/breadcrumbs/Breadcrumbscontact";
@@ -9,6 +10,7 @@ import CarouselComponent from "../components/Carousel/Carousel";
 export default function Contact({ isNavbarHovered }) {
   const TITLE = "Nous contacter";
   const SUB = "Nous contacter";
+  const { isAuthenticated } = useAuth();
   const SUBTEXT =
     "Genesia lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tationullamcorper suscipit lobortis nisl ut aliquip.";
   const [carouselSlides, setCarouselSlides] = useState([]);
@@ -40,6 +42,7 @@ export default function Contact({ isNavbarHovered }) {
         text={SUBTEXT}
         slides={carouselSlides}
         carouselTextId={11}
+        isEditable={isAuthenticated}
       />
       <Breadcrumbscontact breadcrumbsnav={TITLE} />
       <section className="reason-section">

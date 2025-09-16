@@ -58,6 +58,7 @@ export default function AllProj({ isNavbarHovered }) {
         title={SUB}
         category="projects"
         carouselTextId={4}
+        isEditable={isAuthenticated}
       />
 
       <Breadcrumbs breadcrumbsnav="Les projets" breadcrumbssub={SUB} />

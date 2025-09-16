@@ -65,6 +65,7 @@ export default function Economy({ isNavbarHovered }) {
         text={SUBTEXT}
         category="economy"
         carouselTextId={8}
+        isEditable={isAuthenticated}
       />
       <Breadcrumbs breadcrumbsnav="Les projets" breadcrumbssub={SUB} />
 

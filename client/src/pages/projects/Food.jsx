@@ -65,6 +65,7 @@ export default function Food({ isNavbarHovered }) {
         text={SUBTEXT}
         category="food"
         carouselTextId={6}
+        isEditable={isAuthenticated}
       />
       <Breadcrumbs breadcrumbsnav="Les projets" breadcrumbssub={SUB} />
 

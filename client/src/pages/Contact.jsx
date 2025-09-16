@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "../App.css";
-import Datas from "../components/datas/Datas.json";
 
 import Breadcrumbscontact from "../components/breadcrumbs/Breadcrumbscontact";
 import FormContact from "../components/elements/FormContact";
@@ -12,13 +11,34 @@ export default function Contact({ isNavbarHovered }) {
   const SUB = "Nous contacter";
   const SUBTEXT =
     "Genesia lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tationullamcorper suscipit lobortis nisl ut aliquip.";
+  const [carouselSlides, setCarouselSlides] = useState([]);
+
+  useEffect(() => {
+    const fetchCarouselSlides = async () => {
+      try {
+        const response = await fetch("http://localhost:3001/carouselImages");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json(); // data is an object like { home: [...], food: [...], welcome: [...] }
+        // Flatten all slides from all categories into a single array
+        const allSlides = Object.values(data).flat();
+        setCarouselSlides(allSlides.filter(slide => slide.alt === 'welcome01' || slide.alt === 'welcome02'));
+      } catch (error) {
+        console.error("Error fetching carousel slides:", error);
+      }
+    };
+
+    fetchCarouselSlides();
+  }, []);
+
   return (
     <>
       <CarouselComponent
         isNavbarHovered={isNavbarHovered}
         title={SUB}
         text={SUBTEXT}
-        slides={Datas.carouselSlides.welcome}
+        slides={carouselSlides}
         carouselTextId={11}
       />
       <Breadcrumbscontact breadcrumbsnav={TITLE} />

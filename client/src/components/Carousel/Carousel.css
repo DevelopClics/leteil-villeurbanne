@@ -144,3 +144,41 @@
 /* .empty-carousel-background {
   background-color: var(--primary-color);
 } */
+
+.carousel-item-container {
+  position: relative;
+}
+
+.carousel-admin-buttons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+  display: flex;
+  gap: 10px;
+}
+
+.carousel-edit-form-container {
+  background-color: #f8f9fa;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+  border: 1px solid #dee2e6;
+}
+
+.empty-carousel-placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 55vh; /* Same height as hero-image */
+  background-color: #f0f0f0; /* Light gray background */
+  color: #666;
+  font-size: 1.2em;
+  text-align: center;
+  position: relative; /* To position admin buttons */
+}
+
+.empty-carousel-placeholder p {
+  margin-top: 20px;
+}

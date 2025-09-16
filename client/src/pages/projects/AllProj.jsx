@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { useAuth } from "../../context/AuthContext";
 import "../../App.css";
 import CarouselComponent from "../../components/Carousel/Carousel";
 
 import Breadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
 
 import "./AllProj.css";
-import Datas from "../../components/datas/Datas.json";
 import TeamCard from "../../components/Cards/TeamCard";
 
 import EditableTitle from "../../components/EditableTitle";
@@ -22,12 +22,41 @@ export default function AllProj({ isNavbarHovered }) {
   const XXL = 3;
   const IMGPATH = "/images/photos/carousel/projects/";
   const SUB = "Tous les projets";
+
+  const { isAuthenticated } = useAuth();
+  const [allProjects, setAllProjects] = useState([]);
+
+  useEffect(() => {
+    const fetchAllProjects = async () => {
+      try {
+        const headers = {};
+        if (isAuthenticated) {
+          const token = localStorage.getItem("token");
+          if (token) {
+            headers["Authorization"] = `Bearer ${token}`;
+          }
+        }
+        const response = await fetch("http://localhost:3001/allProjects", { headers });
+        if (!response.ok) {
+          const errorText = await response.text(); // Read the response as text
+          throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
+        }
+        const data = await response.json();
+        setAllProjects(data);
+      } catch (error) {
+        console.error("Error fetching all projects:", error);
+      }
+    };
+
+    fetchAllProjects();
+  }, [isAuthenticated]);
+
   return (
     <>
       <CarouselComponent
         isNavbarHovered={isNavbarHovered}
         title={SUB}
-        slides={Datas.carouselSlides.projects}
+        category="projects"
         carouselTextId={4}
       />
 
@@ -38,9 +67,9 @@ export default function AllProj({ isNavbarHovered }) {
             <Col>
               <h2>{SUB}</h2>
               <Row className="g-4">
-                {Datas.allProjects.map((item, index) => (
+                {allProjects.map((item, index) => (
                   <Col
-                    key={index}
+                    key={item.id}
                     xs={XS}
                     sm={SM}
                     md={MD}

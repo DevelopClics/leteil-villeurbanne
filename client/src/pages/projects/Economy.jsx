@@ -1,11 +1,10 @@
 import { Container, Row, Col, Pagination } from "react-bootstrap";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import { useAuth } from "../../context/AuthContext";
 import "../../App.css";
 import CarouselComponent from "../../components/Carousel/Carousel";
 
 import Breadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
-import Datas from "../../components/datas/Datas.json";
-// import Reason from "../../components/ReasonComp";
 import ProjectLayout from "../../components/layouts/ProjectLayout";
 
 export default function Economy({ isNavbarHovered }) {
@@ -16,14 +15,42 @@ export default function Economy({ isNavbarHovered }) {
   const projectsRef = useRef(null);
   const projectsPerPage = 10;
 
+  const { isAuthenticated } = useAuth();
+  const [economyProjects, setEconomyProjects] = useState([]);
+
+  useEffect(() => {
+    const fetchEconomyProjects = async () => {
+      try {
+        const headers = {};
+        if (isAuthenticated) {
+          const token = localStorage.getItem("token");
+          if (token) {
+            headers["Authorization"] = `Bearer ${token}`;
+          }
+        }
+        const response = await fetch("http://localhost:3001/economyProjects", { headers });
+        if (!response.ok) {
+          const errorText = await response.text(); // Read the response as text
+          throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
+        }
+        const data = await response.json();
+        setEconomyProjects(data);
+      } catch (error) {
+        console.error("Error fetching economy projects:", error);
+      }
+    };
+
+    fetchEconomyProjects();
+  }, [isAuthenticated]);
+
   const indexOfLastProject = currentPage * projectsPerPage;
   const indexOfFirstProject = indexOfLastProject - projectsPerPage;
-  const currentProjects = Datas.economyProjects.slice(
+  const currentProjects = economyProjects.slice(
     indexOfFirstProject,
     indexOfLastProject
   );
 
-  const totalPages = Math.ceil(Datas.economyProjects.length / projectsPerPage);
+  const totalPages = Math.ceil(economyProjects.length / projectsPerPage);
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -36,7 +63,7 @@ export default function Economy({ isNavbarHovered }) {
         isNavbarHovered={isNavbarHovered}
         title={SUB}
         text={SUBTEXT}
-        slides={Datas.carouselSlides.economy}
+        category="economy"
         carouselTextId={8}
       />
       <Breadcrumbs breadcrumbsnav="Les projets" breadcrumbssub={SUB} />

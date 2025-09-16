@@ -6,19 +6,10 @@ import Breadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
 import "./Team.css";
 import CarouselComponent from "../../components/Carousel/Carousel";
 
-import TeamCard from "../../components/Cards/TeamCard";
-import PageLayout from "../../components/layouts/PageLayout";
-import GenesisComp from "../../components/GenesisComp";
+import TeamMemberCard from "../../components/Cards/TeamMemberCardcop";
 import { useAuth } from "../../context/AuthContext";
 
 export default function Team({ isNavbarHovered }) {
-  const XS = 12;
-  const SM = 12;
-  const MD = 6;
-  const LG = 4;
-  const XL = 3;
-  const XXL = 2;
-
   const SUB = "L'équipe";
 
   const [teamMembers, setTeamMembers] = useState({
@@ -28,47 +19,35 @@ export default function Team({ isNavbarHovered }) {
     instruction: [],
     scientific: [],
   });
-  const [carouselSlides, setCarouselSlides] = useState([]);
   const { isAuthenticated: isLoggedIn } = useAuth();
   const [isEditable, setIsEditable] = useState(isLoggedIn);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const teamMembersResponse = await fetch(
-          "http://localhost:3001/teammembers"
-        );
-        if (!teamMembersResponse.ok) {
-          throw new Error(`HTTP error! status: ${teamMembersResponse.status}`);
-        }
-        const teamMembersData = await teamMembersResponse.json();
-        setTeamMembers(teamMembersData);
-
-        const carouselImagesResponse = await fetch(
-          "http://localhost:3001/carouselImages"
-        );
-        if (!carouselImagesResponse.ok) {
-          throw new Error(
-            `HTTP error! status: ${carouselImagesResponse.status}`
-          );
-        }
-        const carouselImagesData = await carouselImagesResponse.json();
-        setCarouselSlides(carouselImagesData);
-      } catch (error) {
-        console.error("Error fetching data:", error);
+  const fetchData = async () => {
+    try {
+      const teamMembersResponse = await fetch(
+        "http://localhost:3001/teammembers"
+      );
+      if (!teamMembersResponse.ok) {
+        throw new Error(`HTTP error! status: ${teamMembersResponse.status}`);
       }
-    };
+      const teamMembersData = await teamMembersResponse.json();
+      setTeamMembers(teamMembersData);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
+  useEffect(() => {
     fetchData();
   }, []);
 
   const handleUpdateTeamMember = async (category, id, updatedMember) => {
     try {
-      const token = localStorage.getItem("token"); // Assuming token is stored in localStorage
+      const token = localStorage.getItem("token");
       const response = await fetch(
         `http://localhost:3001/teammembers/${category}/${id}`,
         {
-          method: "PUT", // or PATCH depending on your API design
+          method: "PUT",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
@@ -79,13 +58,7 @@ export default function Team({ isNavbarHovered }) {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      // Update local state after successful API call
-      setTeamMembers((prevMembers) => ({
-        ...prevMembers,
-        [category]: prevMembers[category].map((member) =>
-          member.id === id ? updatedMember : member
-        ),
-      }));
+      await fetchData();
     } catch (error) {
       console.error("Error updating team member:", error);
     }
@@ -106,7 +79,6 @@ export default function Team({ isNavbarHovered }) {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      // Update local state after successful API call
       setTeamMembers((prevMembers) => ({
         ...prevMembers,
         [category]: prevMembers[category].filter((member) => member.id !== id),
@@ -116,13 +88,27 @@ export default function Team({ isNavbarHovered }) {
     }
   };
 
+  const renderTeamMembers = (members, category) => {
+    return members.map((member) => (
+      <TeamMemberCard
+        key={member.id}
+        item={member}
+        isEditable={isEditable}
+        onUpdate={handleUpdateTeamMember}
+        onDelete={handleDeleteTeamMember}
+        category={category}
+      />
+    ));
+  };
+
   return (
     <>
       <CarouselComponent
         isNavbarHovered={isNavbarHovered}
         title={SUB}
-        slides={carouselSlides}
+        category="team"
         carouselTextId={2}
+        isEditable={isLoggedIn}
       />
       <Breadcrumbs breadcrumbsnav="Qui sommes-nous ?" breadcrumbssub={SUB} />
 
@@ -143,13 +129,7 @@ export default function Team({ isNavbarHovered }) {
                   nostrud exerci tation ullamcorper suscipit.
                 </p>
                 <Row className="g-4">
-                  <TeamCard
-                    items={teamMembers.office}
-                    isEditable={isEditable}
-                    onUpdate={handleUpdateTeamMember}
-                    onDelete={handleDeleteTeamMember}
-                    category="office"
-                  />
+                  {renderTeamMembers(teamMembers.office, "office")}
                 </Row>
               </div>
               {/* END OFFICE */}
@@ -164,13 +144,7 @@ export default function Team({ isNavbarHovered }) {
                   nostrud exerci tation ullamcorper suscipit.
                 </p>
                 <Row className="g-4">
-                  <TeamCard
-                    items={teamMembers.employees}
-                    isEditable={isEditable}
-                    onUpdate={handleUpdateTeamMember}
-                    onDelete={handleDeleteTeamMember}
-                    category="employees"
-                  />
+                  {renderTeamMembers(teamMembers.employees, "employees")}
                 </Row>
               </div>
               {/* END EMPLOYEES */}
@@ -185,13 +159,10 @@ export default function Team({ isNavbarHovered }) {
                   nostrud exerci tation ullamcorper suscipit.
                 </p>
                 <Row className="g-4">
-                  <TeamCard
-                    items={teamMembers.administration}
-                    isEditable={isEditable}
-                    onUpdate={handleUpdateTeamMember}
-                    onDelete={handleDeleteTeamMember}
-                    category="administration"
-                  />
+                  {renderTeamMembers(
+                    teamMembers.administration,
+                    "administration"
+                  )}
                 </Row>
               </div>
               {/* END ADMINISTRATION ADVISOR*/}
@@ -206,13 +177,7 @@ export default function Team({ isNavbarHovered }) {
                   nostrud exerci tation ullamcorper suscipit.
                 </p>
                 <Row className="g-4">
-                  <TeamCard
-                    items={teamMembers.instruction}
-                    isEditable={isEditable}
-                    onUpdate={handleUpdateTeamMember}
-                    onDelete={handleDeleteTeamMember}
-                    category="instruction"
-                  />
+                  {renderTeamMembers(teamMembers.instruction, "instruction")}
                 </Row>
               </div>
               {/* END INSTRUCTION COMITY */}
@@ -221,19 +186,13 @@ export default function Team({ isNavbarHovered }) {
                 <h4>conseil scientifique</h4>
                 <hr />
                 <p className="text">
-                  Lorem ipsum dolor sit amet, consectuer adipiscing elit, sed
+                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
                   diam nonummy nibh euismod tincidunt ut laoreet dolore magna
                   aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
                   nostrud exerci tation ullamcorper suscipit.
                 </p>
                 <Row className="g-4">
-                  <TeamCard
-                    items={teamMembers.scientific}
-                    isEditable={isEditable}
-                    onUpdate={handleUpdateTeamMember}
-                    onDelete={handleDeleteTeamMember}
-                    category="scientific"
-                  />
+                  {renderTeamMembers(teamMembers.scientific, "scientific")}
                 </Row>
               </div>
               {/* END SCIENTIFIC ADVISOR*/}

@@ -1,11 +1,10 @@
 import { Container, Row, Col, Pagination } from "react-bootstrap";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import { useAuth } from "../../context/AuthContext";
 import "../../App.css";
 import CarouselComponent from "../../components/Carousel/Carousel";
 
 import Breadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
-import Datas from "../../components/datas/Datas.json";
-// import Reason from "../../components/ReasonComp";
 import ProjectLayout from "../../components/layouts/ProjectLayout";
 
 export default function Food({ isNavbarHovered }) {
@@ -16,14 +15,42 @@ export default function Food({ isNavbarHovered }) {
   const projectsRef = useRef(null);
   const projectsPerPage = 10;
 
+  const { isAuthenticated } = useAuth();
+  const [foodProjects, setFoodProjects] = useState([]);
+
+  useEffect(() => {
+    const fetchFoodProjects = async () => {
+      try {
+        const headers = {};
+        if (isAuthenticated) {
+          const token = localStorage.getItem("token");
+          if (token) {
+            headers["Authorization"] = `Bearer ${token}`;
+          }
+        }
+        const response = await fetch("http://localhost:3001/foodProjects", { headers });
+        if (!response.ok) {
+          const errorText = await response.text(); // Read the response as text
+          throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
+        }
+        const data = await response.json();
+        setFoodProjects(data);
+      } catch (error) {
+        console.error("Error fetching food projects:", error);
+      }
+    };
+
+    fetchFoodProjects();
+  }, [isAuthenticated]);
+
   const indexOfLastProject = currentPage * projectsPerPage;
   const indexOfFirstProject = indexOfLastProject - projectsPerPage;
-  const currentProjects = Datas.foodProjects.slice(
+  const currentProjects = foodProjects.slice(
     indexOfFirstProject,
     indexOfLastProject
   );
 
-  const totalPages = Math.ceil(Datas.foodProjects.length / projectsPerPage);
+  const totalPages = Math.ceil(foodProjects.length / projectsPerPage);
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -36,7 +63,7 @@ export default function Food({ isNavbarHovered }) {
         isNavbarHovered={isNavbarHovered}
         title={SUB}
         text={SUBTEXT}
-        slides={Datas.carouselSlides.food}
+        category="food"
         carouselTextId={6}
       />
       <Breadcrumbs breadcrumbsnav="Les projets" breadcrumbssub={SUB} />

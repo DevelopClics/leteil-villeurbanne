@@ -50,7 +50,7 @@ export default function TeamCard({
 
       try {
         const token = localStorage.getItem("token");
-        const response = await fetch("http://localhost:3001/upload", {
+        const response = await fetch(`http://localhost:3001/upload/${category}`, {
           method: "POST",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -74,9 +74,8 @@ export default function TeamCard({
     const updatedFormData = { ...formData, src: imageUrl };
     console.log("imageUrl before onUpdate:", imageUrl);
     console.log("updatedFormData before onUpdate:", updatedFormData);
-    onUpdate(category, formData.id, updatedFormData);
+    await onUpdate(category, formData.id, updatedFormData);
     setEditingId(null);
-    setFormData(updatedFormData); // Update formData with the new image URL
     setSelectedFile(null);
   };
 
@@ -92,13 +91,7 @@ export default function TeamCard({
             <div className="square-img-container">
               <LazyLoadImage
                 wrapperClassName="square-img"
-                src={
-                  item.src.startsWith("http")
-                    ? item.src
-                    : `${import.meta.env.BASE_URL}${
-                        item.src
-                      }?cachebuster=${Math.random()}` // Use a random number for aggressive cache busting
-                }
+                src={ `${item.src.startsWith("http") ? item.src : import.meta.env.BASE_URL + item.src}?v=${Date.now()}` }
                 alt={item.alt}
                 effect="blur"
                 width="100%"

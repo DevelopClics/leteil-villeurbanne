@@ -1,23 +1,38 @@
 import { Container, Row, Col, Pagination } from "react-bootstrap";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 import "../../App.css";
 
 import Breadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
 import CarouselComponent from "../../components/Carousel/Carousel";
-import Datas from "../../components/datas/Datas.json";
 import FakeComp from "../../components/FakeComp";
 import PageLayout from "../../components/layouts/PageLayout";
 import ProjectLayout from "../../components/layouts/ProjectLayout";
 
 export default function Places({ isNavbarHovered }) {
   const SUB = "Les villes";
+  const [citiesProjects, setCitiesProjects] = useState([]);
+
+  useEffect(() => {
+    const fetchCitiesProjects = async () => {
+      try {
+        const response = await axios.get("http://localhost:3001/citiesProjects");
+        setCitiesProjects(response.data);
+      } catch (error) {
+        console.error("Error fetching cities projects:", error);
+      }
+    };
+
+    fetchCitiesProjects();
+  }, []);
+
   return (
     <>
       <CarouselComponent
         isNavbarHovered={isNavbarHovered}
         title={SUB}
-        slides={Datas.carouselSlides.cities}
+        category="city"
         carouselTextId={3}
       />
       <Breadcrumbs breadcrumbsnav="Qui sommes-nous ?" breadcrumbssub={SUB} />
@@ -28,11 +43,11 @@ export default function Places({ isNavbarHovered }) {
             <Col>
               <h2>{SUB}</h2>
 
-              {Datas.citiesProjects.map((item) => (
+              {(citiesProjects || []).map((item) => (
                 <ProjectLayout
                   key={item.id}
                   title={item.title}
-                  photo={item.src}
+                  photo={item.photo}
                   alt={item.alt}
                   size={item.size}
                   subtitle={item.subtitle}

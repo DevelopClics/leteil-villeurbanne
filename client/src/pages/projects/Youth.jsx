@@ -1,14 +1,11 @@
 import { Container, Row, Col, Pagination } from "react-bootstrap";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import { useAuth } from "../../context/AuthContext";
 import "../../App.css";
 import CarouselComponent from "../../components/Carousel/Carousel";
 
 import Breadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
-import Datas from "../../components/datas/Datas.json";
 import ProjectLayout from "../../components/layouts/ProjectLayout";
-
-// import FakeComp from "../../components/FakeComp";
-// import PageLayout from "../../components/mainpages/PageLayout";
 
 export default function Youth({ isNavbarHovered }) {
   const SUB = "Jeunesse";
@@ -18,14 +15,42 @@ export default function Youth({ isNavbarHovered }) {
   const projectsRef = useRef(null);
   const projectsPerPage = 10;
 
+  const { isAuthenticated } = useAuth();
+  const [youthProjects, setYouthProjects] = useState([]);
+
+  useEffect(() => {
+    const fetchYouthProjects = async () => {
+      try {
+        const headers = {};
+        if (isAuthenticated) {
+          const token = localStorage.getItem("token");
+          if (token) {
+            headers["Authorization"] = `Bearer ${token}`;
+          }
+        }
+        const response = await fetch("http://localhost:3001/youthProjects", { headers });
+        if (!response.ok) {
+          const errorText = await response.text(); // Read the response as text
+          throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
+        }
+        const data = await response.json();
+        setYouthProjects(data);
+      } catch (error) {
+        console.error("Error fetching youth projects:", error);
+      }
+    };
+
+    fetchYouthProjects();
+  }, [isAuthenticated]);
+
   const indexOfLastProject = currentPage * projectsPerPage;
   const indexOfFirstProject = indexOfLastProject - projectsPerPage;
-  const currentProjects = Datas.youthProjects.slice(
+  const currentProjects = youthProjects.slice(
     indexOfFirstProject,
     indexOfLastProject
   );
 
-  const totalPages = Math.ceil(Datas.youthProjects.length / projectsPerPage);
+  const totalPages = Math.ceil(youthProjects.length / projectsPerPage);
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -38,7 +63,7 @@ export default function Youth({ isNavbarHovered }) {
         isNavbarHovered={isNavbarHovered}
         title={SUB}
         text={SUBTEXT}
-        slides={Datas.carouselSlides.youth}
+        category="youth"
         carouselTextId={7}
       />
       <Breadcrumbs breadcrumbsnav="Les projets" breadcrumbssub={SUB} />

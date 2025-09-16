@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Carousel, Button, Form } from "react-bootstrap";
 import axios from "axios";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -17,6 +17,10 @@ const CarouselComponent = ({
   const [text, setText] = useState("");
   const [editedText, setEditedText] = useState("");
   const [localSlides, setLocalSlides] = useState([]); // Initialize as empty array
+
+  const formRef = useRef(null); // Add this line
+  const textEditRef = useRef(null); // Add this line
+  const heroSectionRef = useRef(null); // Add this line
 
   // State for inline editing of slides
   const [editingSlideId, setEditingSlideId] = useState(null);
@@ -71,6 +75,18 @@ const CarouselComponent = ({
       fetchCarouselText();
     }
   }, [carouselTextId]);
+
+  useEffect(() => {
+    if (isEditingText && textEditRef.current) {
+      textEditRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, [isEditingText]);
+
+  useEffect(() => {
+    if ((editingSlideId || isCreatingNewSlide) && formRef.current) {
+      formRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, [editingSlideId, isCreatingNewSlide]);
 
   const handleEditClick = () => {
     setIsEditingText(true);
@@ -177,6 +193,11 @@ const CarouselComponent = ({
     setFormData({});
     setSelectedFile(null);
     setIsCreatingNewSlide(false);
+
+    // Scroll up to the hero section
+    if (heroSectionRef.current) {
+      heroSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   const handleFormChange = (e) => {
@@ -266,6 +287,11 @@ const CarouselComponent = ({
       setEditingSlideId(null);
       setSelectedFile(null);
       setIsCreatingNewSlide(false);
+
+      // Scroll up to the hero section
+      if (heroSectionRef.current) {
+        heroSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     } catch (error) {
       console.error("Error saving slide:", error);
     }
@@ -277,6 +303,7 @@ const CarouselComponent = ({
         className={`hero-section ${isNavbarHovered ? "navbar-hovered" : ""} ${
           localSlides.length === 0 ? "empty-carousel-background" : ""
         }`}
+        ref={heroSectionRef}
       >
         <Carousel controls={true} indicators={true}>
           {localSlides.length > 0 ? (
@@ -284,13 +311,14 @@ const CarouselComponent = ({
               <Carousel.Item key={slide.id} className="carousel-item-container">
                 {isEditable && (
                   <div className="carousel-admin-buttons">
-                    <Button variant="success" size="sm" onClick={handleCreate}>
+                    <Button variant="success" size="sm" onClick={handleCreate} className="carousel-admin-button">
                       Ajouter
                     </Button>
                     <Button
                       variant="warning"
                       size="sm"
                       onClick={() => handleEditSlideClick(slide)}
+                      className="carousel-admin-button"
                     >
                       Modifier
                     </Button>
@@ -298,6 +326,7 @@ const CarouselComponent = ({
                       variant="danger"
                       size="sm"
                       onClick={() => handleDelete(slide.id)}
+                      className="carousel-admin-button"
                     >
                       Supprimer
                     </Button>
@@ -346,6 +375,7 @@ const CarouselComponent = ({
                   value={editedText}
                   onChange={(e) => setEditedText(e.target.value)}
                   rows="10"
+                  ref={textEditRef}
                 />
                 <Button
                   variant="success"
@@ -377,7 +407,7 @@ const CarouselComponent = ({
       </section>
 
       {isEditable && (editingSlideId || isCreatingNewSlide) && (
-        <div className="carousel-edit-form-container">
+        <div className="carousel-edit-form-container" ref={formRef}>
           <div className="container">
             <Form>
               <h4>

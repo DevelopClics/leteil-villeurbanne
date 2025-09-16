@@ -1,31 +1,25 @@
 {
-  "user": [
-    {
-      "id": "admin",
-      "name": "Julien",
-      "password": "$2b$10$LZSdH5P131sL4I7ZVqOU7OCQut5GKHByVtWXFu6erfO9zmeTagXPC",
-      "role": "admin"
-    }
-  ],
   "teammembers": {
     "office": [
       {
         "id": 1,
-        "src": "images/photos/team/office/1757684514260-222.jpg",
+        "src": "images/photos/team/office/1757948530798-25.jpg",
         "alt": "photo de Bernadette Dubosc",
         "lastname": "Dubosc",
         "surname": "Bernadette",
         "occupation": "Secrétaire",
-        "contact": "bernadette.dubosc@adct-asso.org"
+        "contact": "bernadette.dubosc@adct-asso.org",
+        "cacheBust": 1757948530802
       },
       {
         "id": 2,
-        "src": "images/photos/team/office/1757684525726-25.jpg",
+        "src": "images/photos/team/office/1758020814085-222.jpg",
         "alt": "Concert",
         "lastname": "Dupond",
         "surname": "Jean",
         "occupation": "Chargé d'accueil",
-        "contact": "jerome.dupond@adct-asso.org"
+        "contact": "jerome.dupond@adct-asso.org",
+        "cacheBust": 1758020814089
       },
       {
         "id": 3,
@@ -262,7 +256,36 @@
       }
     ]
   },
-  "products": [],
+  "carouselImages": {
+    "home": [
+      {
+        "id": 1,
+        "src": "images/photos/team/carousel/1757947655109-AdobeStock_570690849.jpeg",
+        "alt": "Home1"
+      }
+    ],
+    "genesis": [
+      {
+        "id": 1,
+        "src": "images/photos/carousel/team/AdobeStock_277443017.jpeg",
+        "alt": "Home1"
+      }
+    ],
+    "team": [
+      {
+        "id": 1,
+        "src": "images/photos/carousel/team/AdobeStock_277443017.jpeg",
+        "alt": "Home1"
+      }
+    ],
+    "city": [
+      {
+        "id": 1,
+        "src": "images/photos/carousel/team/AdobeStock_277443017.jpeg",
+        "alt": "Home1"
+      }
+    ]
+  },
   "carouselText": [
     {
       "content": "HOMINGG vo lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tationullamcorper suscipit lobortis nisl ut aliquip. (Slide 1)",
@@ -313,6 +336,310 @@
       "id": 11
     }
   ],
+  "allProjects": [
+    {
+      "id": 1,
+      "src": "images/photos/projects/food/AdobeStock_177891705.jpeg",
+      "alt": "alt",
+      "category": "Alimentation",
+      "title": "Le titre du projet",
+      "text": "Un tout petit descriptif vraiment pas long du tout"
+    },
+    {
+      "id": 2,
+      "src": "images/photos/projects/culture/AdobeStock_128079957.jpeg",
+      "alt": "alt",
+      "category": "Culture",
+      "title": "Le titre du projet",
+      "text": "Un tout petit descriptif vraiment pas long du tout"
+    },
+    {
+      "id": 3,
+      "src": "images/photos/projects/economy/AdobeStock_280115343.jpeg",
+      "alt": "alt",
+      "category": "économie",
+      "title": "Le titre du projet",
+      "text": "Un tout petit descriptif vraiment pas long du tout"
+    },
+    {
+      "id": 4,
+      "src": "images/photos/projects/youth/AdobeStock_244627948.jpeg",
+      "category": "jeunesse",
+      "title": "Le titre du projet",
+      "text": "Un tout petit descriptif vraiment pas long du tout"
+    },
+    {
+      "id": 5,
+      "src": "images/photos/projects/food/AdobeStock_204199437.jpeg",
+      "alt": "alt",
+      "category": "alimentation",
+      "title": "Le titre du projet",
+      "text": "Un tout petit descriptif vraiment pas long du tout"
+    },
+    {
+      "id": 6,
+      "src": "images/photos/projects/food/AdobeStock_177891705.jpeg",
+      "alt": "alt",
+      "category": "alimentation",
+      "title": "Le titre du projet",
+      "text": "Un tout petit descriptif vraiment pas long du tout"
+    },
+    {
+      "id": 9,
+      "src": "images/photos/projects/food/AdobeStock_204199437.jpeg",
+      "alt": "alt",
+      "category": "alimentation",
+      "title": "Le titre du projet",
+      "text": "Un tout petit descriptif vraiment pas long du tout"
+    },
+    {
+      "id": 7,
+      "src": "images/photos/projects/food/AdobeStock_177891705.jpeg",
+      "alt": "alt",
+      "category": "alimentation",
+      "title": "Le titre du projet",
+      "text": "Un tout petit descriptif vraiment pas long du tout"
+    },
+    {
+      "id": 8,
+      "src": "images/photos/culture/AdobeStock_270911862.jpeg",
+      "alt": "alt",
+      "category": "Culture",
+      "title": "Le titre du projet",
+      "text": "Un tout petit descriptif vraiment pas long du tout"
+    }
+  ],
+  "cultureProjects": [
+    {
+      "id": 1,
+      "title": "Semaine de Musique d’ensemble ",
+      "src": "images/photos/projects/culture/AdobeStock_128079957.jpeg",
+      "alt": "alt",
+      "size": "30",
+      "subtitle": "Du 7 au 11 juillet 2025",
+      "article": "Des groupes de musiciens, en formation pour devenir professeurs de musique, ont investi les locaux de six structures du Teil, pour une résidence de création musicale. En étant au cœur de lieux tournés vers les habitants, ils ont pensé leur création en incluant dans leur processus les usagers et les personnes y travaillant. Par exemple, dans une maison de retraite, les musiciens ont partagé pendant leur performance les récits de voyage des résidents. A la fin de la semaine, les différents groupes se sont produits au sein des structures qui les ont accueillis, permettant aux habitants et usagers de s’embarquer dans un voyage musical en itinérance, au plus près de chez eux. Le public a été ravi de sa découverte à chaque escale : du Jazz cap-verdien à la résidence Les Peupliers (maison de retraite), de la Pop des années 80 à Zone 5 (association de permaculture), de la comédie musicale au Tilt (tiers-lieux artistique), de la musique de la Renaissance au centre socio-culturel Les Clefs et du tango argentin au Secours Populaire. ",
+      "contacts": "Contacts : CEFEDEM (centre de formation des professeurs de musique) :",
+      "links01": "https://cefedem-aura.org/",
+      "typelink01": "",
+      "namelink01": "Cefedem | centre de ressources professionnelles et d'enseignement supérieur artistique",
+      "links02": "https://youtu.be/xWWm5XjZgzo?si=3i2eCGL20DG0XEYH",
+      "typelink02": "",
+      "namelink02": "Vidéo des restitutions musicales"
+    },
+    {
+      "id": 2,
+      "title": "Créations croisées",
+      "src": "images/photos/projects/culture/AdobeStock_347123057.jpeg",
+      "alt": "alt",
+      "size": "30",
+      "subtitle": "A partir de janvier 2026",
+      "article": "Les artistes professionnels de Villeurbanne et du Teil se rencontreront pour créer, en duo ou en trio, deux spectacles vivants mêlant plusieurs disciplines (théâtre, danse, musique, art plastique…). Ces créations seront diffusées dans des espaces non dédiés au spectacle vivant, pour faciliter la rencontre avec des publics éloignés des offres culturelles. C’est aussi un dispositif solidaire qui sélectionne des artistes en difficultés, notamment dans notre contexte budgétaire actuel qui touche gravement la culture. ",
+      "contacts": "Contacts : ",
+      "links01": "https://www.ouvrirlhorizon-aura.fr/",
+      "typelink01": "",
+      "namelink01": "Accueil - Ouvrir l'Horizon AURA",
+      "links02": "https://www.le-tilt.com/",
+      "typelink02": "",
+      "namelink02": " Bienvenue au TiLT - Tiers-Lieu Culturel - Le Teil - Ardèche"
+    }
+  ],
+  "foodProjects": [
+    {
+      "id": 1,
+      "title": "Mieux manger pour tous",
+      "src": "images/photos/projects/food/AdobeStock_177891705.jpeg",
+      "alt": "alt",
+      "size": "30",
+      "subtitle": "2024",
+      "article": "Chaque mois, des ateliers de cuisine ont été organisés simultanément au Teil (Secours Populaire, Le Terreau) et à Villeurbanne (La Cantina, les Escales solidaire, les Petites Cantines, Maison des familles), pour mettre en valeur des légumes bio et de saison auprès d’un public en situation de précarité. L’objectif était de travailler des produits parfois méconnus avec des recettes peu coûteuses, apporter des légumes de qualité à des personnes qui en bénéficient peu en leur permettant de repartir avec des paniers, échanger sur la qualité alimentaire à l’occasion de moments conviviaux, créer des liens entre associations villeurbannaises et ardéchoises. Les légumes utilisés ont été cultivés par l’association Le Terreau, qui travaille sur agit sur l’insertion sociale et professionnelle par le maraichage biologique.",
+      "contacts": "Contacts :",
+      "links01": "https://www.leterreau.org/nos-valeurs",
+      "typelink01": "",
+      "namelink01": "Nos valeurs | Association Le Terreau",
+      "links02": "https://www.facebook.com/share/v/1QFkPxTR6S/",
+      "typelink02": "Vidéo :",
+      "namelink02": "8ème édition des ateliers cuisine"
+    }
+  ],
+  "youthProjects": [
+    {
+      "id": 1,
+      "title": "Vis ma vie ",
+      "src": "images/photos/projects/youth/AdobeStock_244627948.jpeg",
+      "alt": "alt",
+      "size": "30",
+      "subtitle": "Septembre et novembre 2025",
+      "article": "Au cours de précédents projets de rencontres des jeunes du Teil et de Villeurbanne, les structures encadrantes se sont confrontées à des différences, dans leurs pratiques professionnelles et dans les attentes des jeunes de territoires très différents. Cette année, les acteurs jeunesses impliqués dans la coopération se rencontreront, d’abord au Teil puis à Villeurbanne, pour échanger sur leurs pratiques, découvrir leurs espaces et activités, afin de faciliter la co-construction de projets communs et de ce fait faciliter la mobilisation des jeunes de part et d’autre. Seront aussi présents des jeunes comme ambassadeurs de cette démarche pour nourrir les projets futurs.",
+      "contacts": "Contacts : mqb@mairie-villeurbanne.fr",
+      "links01": "https://www.facebook.com/lesclefscsc/",
+      "typelink01": " - Facebook : ",
+      "namelink01": "Les CLEFS"
+    },
+    {
+      "id": 2,
+      "title": "Vacances",
+      "src": "images/photos/projects/youth/AdobeStock_244627948.jpeg",
+      "alt": "alt",
+      "size": "30",
+      "subtitle": "Juillet 2025",
+      "article": "25 jeunes villeurbannais du quartier prioritaire de la ville des Brosses sont partis en petits groupes, un, deux ou trois jours au Teil, pour des vacances à la campagne, dépaysantes par rapport au béton villeurbannais. Au programme : coup de main à l’association Les Chevaux du Paradis (traite des chèvres, nettoyage de l’espace équestre, aide aux petits travaux…), initiation à l’équitation, visite du Teil et de ses alentours, rencontre avec les jeunes teillois. Ces séjours permettent de favoriser la mobilité et l’ouverture culturelle des jeunes en milieu rural, de renforcer leur engagement citoyen par la participation à une action solidaire concrète et de développer leur autonomie par leur implication dans la préparation des séjours.",
+      "contacts": "mqb@mairie-villeurbanne.fr",
+      "links01": "",
+      "typelink01": "Vidéo :",
+      "namelink01": "xxxxxxxx"
+    },
+    {
+      "id": 3,
+      "title": "Echanges de jeunes",
+      "src": "images/photos/projects/youth/AdobeStock_271631234.jpeg",
+      "alt": "alt",
+      "size": "30",
+      "subtitle": "Étés 2023 et 2024",
+      "article": "Depuis 2023, les jeunes du Teil et de Villeurbanne se rencontrent pendant leurs vacances, les faisant découvrir un nouvel environnement, comprendre d’autres réalités et participant à consolider une relation pérenne entre les deux communes. En juillet 2023, deux équipes d’une dizaine de jeunes de Villeurbanne sont venus au Teil et ont rejoints des jeunes du centre socio-culturel Les Clefs pour être bénévoles dans le cadre du festival des arts du cirque d’Alba-la-Romaine. En avril 2024, les jeunes du centre social des Buers (Villeurbanne), de la maison de quartier des Brosses (Villeurbanne) et du centre socio-culturel Les Clefs (Le Teil) ont passés quelques jours ensemble. En juillet 2024 des jeunes des mêmes structures ont participé à un séjour de vacances ensemble à Saint Thomé en Ardèche. En août 2024, une dizaine de jeunes du Teil ont été bénévole au festival de musique Woodstower à Villeurbanne, avec des jeunes de la MQB."
+    },
+    {
+      "id": 4,
+      "title": "Vers l’enseignement supérieur",
+      "src": "images/photos/projects/youth/AdobeStock_244627948.jpeg",
+      "alt": "alt",
+      "size": "30",
+      "subtitle": "Septembre 2025 à juin 2026",
+      "article": "Pour lutter contre l’auto-censure des jeunes du Teil dans leur choix d’études supérieures, liée au manque d’informations ou aux a-priori des grandes villes universitaires, plusieurs structures Villeurbannaises et Teilloises proposeront un accompagnement aux jeunes et à leurs parents. En octobre 2025, un groupe de 25 élèves de seconde partira à Villeurbanne pour visiter son campus, et découvrir les métiers de l’audiovisuel au pôle Pixel. Ils auront ainsi l’occasion de s’immerger dans la vie villeurbannaise, avec notamment des visites sportives et culturelles. En janvier 2025, ce sera au tour des parents d’élèves de partir pour une journée à la découverte de Villeurbanne et de son campus, puisqu’ils jouent un rôle clef dans l’accompagnement à l’orientation de leurs enfants, et qu’ils sont aussi les premiers à projeter des peurs sur leur possible départ en grande ville. Tout au long de l’année, l’AFEV animera aussi des ateliers d’informations sur l’enseignement supérieur et la vie étudiante auprès des classes de seconde et des parents.",
+      "contacts": "Contact : leteilvilleurbanne@proton.me",
+      "links01": "https://afev.org/auvergne-rhone-alpes/grand-lyon",
+      "typelink01": " – A Villeurbanne : ",
+      "namelink01": "AFEV",
+      "links02": "https://www.facebook.com/people/Association-Mediacom/100064476642534/",
+      "typelink02": "Au Teil : ",
+      "namelink02": "Mediacom "
+    },
+    {
+      "id": 5,
+      "title": "Garantie logement social étudiant",
+      "src": "images/photos/projects/youth/AdobeStock_271631234.jpeg",
+      "alt": "alt",
+      "size": "30",
+      "subtitle": "Depuis avril 2025",
+      "article": "Dans les grandes villes universitaires, face à la crainte de ne pas trouver un logement étudiant abordable et convenable, trop de lycéens des petites villes et communes rurales s’autocensurent en amont dans le choix de leur parcours post-bac, en évitant de demander et/ou d’accepter les offres dans les grandes villes, éloignées de chez eux. Pour lutter contre ce phénomène, l’ADCT expérimente à Villeurbanne la mise en place d’une  garantie logement social étudiant  à destination des lycéens du Teil, en partenariat avec les bailleurs et associations du logement social (Est Métropole Habitat, fondation Aralis, AFEV). Au moment de leur inscription sur Parcoursup, ils pouvaient déclarer auprès de l’association s’ils avaient postulé dans une école/université de la métropole lyonnaise. Ainsi, dès avril, ils avaient la garantie qu’ils auraient accès à un logement à Lyon/Villeurbanne dans le cas où, durant l’été, ils n’auraient pas trouvé de logement par leur propre moyen. Cette garantie pourra être mobilisée tout l’été, et même au moment de la rentrée, pour s’assurer que personne ne renonce à des études supérieures par crainte de ne pas trouver un logement abordable.",
+      "contacts": "Contact : leteilvilleurbanne@proton.me"
+    },
+    {
+      "id": 6,
+      "title": "Aider les étudiants à trouver leur place dans la ville",
+      "src": "images/photos/projects/youth/AdobeStock_244627948.jpeg",
+      "alt": "alt",
+      "size": "30",
+      "subtitle": "Septembre à décembre 2025",
+      "article": "A la rentrée, l’enjeu que portera l’ADCT sera de faciliter l’appropriation de la grande ville par les étudiants teillois, en leur proposant de s’y sentir intégrés par la découverte de loisirs culturels et sportifs (concerts, spectacles, matchs…). Cela permet aussi de créer des espaces de rencontres qui, à la manière de ce que met en place l’Afev avec le mentorat, limitent les risques de décrochage des nouveaux étudiants, plus fréquents durant les trois premiers mois d’études, notamment quand ils ne sont pas encore complètement intégrés auprès de groupes d’amis.",
+      "contacts": "Contact : leteilvilleurbanne@proton.me"
+    },
+    {
+      "id": 7,
+      "title": "Stages de 3ème et 2nde",
+      "src": "images/photos/projects/youth/AdobeStock_271631234.jpeg",
+      "alt": "alt",
+      "size": "30",
+      "subtitle": "Dès décembre 2025",
+      "article": "Pour favoriser la mobilité des jeunes, leur faire découvrir de nouveaux métiers et de nouveaux environnements, les élèves de 3ème et 2nde auront la possibilité de réaliser leur stage à Villeurbanne pour les teillois, au Teil pour les villeurbannais. Pour faciliter leur accueil, les élèves sont logés chez des habitants·es bénévoles qui les accueillent toute la semaine. Pour les teillois, ces semaines seront l’occasion pour eux d’apprivoiser dès le collège la grande ville, permettant de mieux s’y projeter pour des études supérieures. Si vous pouvez accueillir un stagiaire dans votre structure à Villeurbanne, vous pouvez remplir ce formulaire : Si vous pouvez accueillir un stagiaire dans votre structure au Teil, vous pouvez remplir ce formulaire : ",
+      "contacts": "leteilvilleurbanne@proton.me"
+    },
+    {
+      "id": 8,
+      "title": "Démocratisation et réussite dans l’enseignement supérieur des jeunes teillois",
+      "src": "images/photos/projects/youth/AdobeStock_244627948.jpeg",
+      "alt": "alt",
+      "size": "30",
+      "subtitle": "Septembre 2023 à juin 2024",
+      "article": "Pour accompagner les teillois dans des parcours d’enseignement supérieur sécurisés et leur permettre de diversifier leurs aspirations, plusieurs actions ont été menées par l’AFEV dans les collèges et lycées du Teil. Au collège Marcel Chamontin, l’AFEV a animé quatre ateliers de sensibilisation à l’enseignement supérieur auprès de 60 élèves. Dix jeunes du Teil ont ausis pu participer à un échange avec des étudiants pour questionner le passage du lycée à l’université. Au lycée Xavier Mallet du Teil, l’AFEV a présenté à toutes les classes de terminales (environ 190 élèves) des informations sur les logements étudiants sécurisant les parcours vers le supérieur et à prix abordables (colocations à projets solidaires de l’AFEV et résidence de la réussite du Crous).",
+      "contacts": "Contact :",
+      "links01": "https://afev.org/auvergne-rhone-alpes/grand-lyon",
+      "namelink01": "AFEV"
+    }
+  ],
+  "economyProjects": [
+    {
+      "id": 1,
+      "title": "Produire des chiliennes à partir des déchets des deux territoires en employant des personnes éloignées de l’emploi",
+      "src": "images/photos/projects/economy/AdobeStock_443596464.jpeg",
+      "alt": "alt",
+      "size": "30",
+      "subtitle": "",
+      "article": "Villeurbanne traite une filière infinie de déchets de palettes et Le Teil traite une filière infinie de déchets de bâches évènementielles. Ensemble, dans le cadre des dispositifs Territoire Zéro Chômeur de Longue Durée des deux villes, ces déchets deviennent des chiliennes/transats. Depuis la fin de leur prototypage, en juin 2025, déjà 50 chiliennes ont été commandées. Elles permettent de réduire les déchets, tout en créant de l’emploi, par la combinaison des ressources des deux territoires, et favorisent l’économie circulaire.",
+      "contacts": "Contacts pour les commandes : ",
+      "links01": "",
+      "typelink01": "",
+      "namelink01": "Au Teil : contact@activiteil.fr",
+      "links02": "",
+      "typelink02": "",
+      "namelink02": "À Villeurbanne : hello@brossup.org"
+    },
+    {
+      "id": 2,
+      "title": "Le grand déplacement",
+      "src": "images/photos/projects/economy/AdobeStock_280115343.jpeg",
+      "alt": "alt",
+      "size": "30",
+      "subtitle": "De octobre à décembre 2025",
+      "article": "Afin de faciliter l’insertion sociale, la mobilité et la compréhension de soi et de l’autre, les entreprises à but d’emploi du Teil et de Villeurbanne proposent à leur salariés (dans le cadre des dispositifs Territoires Zéro Chômeur de Longue Durée) des visites réciproques pour découvrir un autre environnement de travail. Ces visites seront accompagnées par une compagnie de théâtre qui facilitera la rencontre des salariés. Elles permettront aussi de prototyper un modèle de visite pour les habitants voisins des EBE afin de faire découvrir à d’autres, et de manière ludique, la mission et le quotidien d’un EBE.",
+      "contacts": "Contacts : ",
+      "links01": "https://declicetdesclaps.com/",
+      "typelink01": "",
+      "namelink01": "Déclic et des Claps - Le Teil",
+      "links02": "",
+      "typelink02": "",
+      "namelink02": ""
+    },
+    {
+      "id": 2,
+      "title": "Échange d’artisans",
+      "src": "images/photos/projects/economy/AdobeStock_280115343.jpeg",
+      "alt": "alt",
+      "size": "30",
+      "subtitle": "À partir de septembre 2025",
+      "article": "Les artisans de chacune des deux villes seront invités à vendre leurs créations/produits sur les marchés de Noël, festivals de l’artisanat, etc, du Teil et de Villeurbanne. Cela permettra de diversifier les points de vente des artisans, de favoriser les productions responsables et la mutualisation d’initiatives.",
+      "contacts": "Contacts : ",
+      "links01": "https://exitmag.fr/evenement/la-fabrique-villeurbannaise-marche-dinitiatives-artisan-es-locaux/",
+      "typelink01": "",
+      "namelink01": "A Villeurbanne",
+      "links02": "",
+      "typelink02": "",
+      "namelink02": ""
+    }
+  ],
+  "citiesProjects": [
+    {
+      "id": 1,
+      "title": "Le Teil",
+      "src": "images/photos/carousel/cities/AdobeStock_311575980.jpeg",
+      "alt": "Ville01",
+      "size": "30",
+      "subtitle": "Commune française",
+      "article": "Le Teil est une commune française située dans le département de l'Ardèche en région Auvergne-Rhône-Alpes. C'est une ville dynamique avec une riche histoire et un patrimoine culturel important. Elle offre un cadre de vie agréable avec de nombreux services et activités pour ses habitants.",
+      "contacts": "Mairie du Teil",
+      "links01": "https://www.leteil.fr/",
+      "typelink01": "Site web :",
+      "namelink01": "Mairie du Teil",
+      "links02": "",
+      "typelink02": "",
+      "namelink02": ""
+    },
+    {
+      "id": 2,
+      "title": "Villeurbanne",
+      "src": "images/photos/carousel/cities/AdobeStock_570690849.jpeg",
+      "alt": "Ville02",
+      "size": "30",
+      "subtitle": "Commune française",
+      "article": "Villeurbanne est une commune française située dans la métropole de Lyon en région Auvergne-Rhône-Alpes. C'est une ville moderne et cosmopolite, connue pour son dynamisme économique et culturel. Elle propose une grande diversité d'activités et d'infrastructures.",
+      "contacts": "Mairie de Villeurbanne",
+      "links01": "https://www.villeurbanne.fr/",
+      "typelink01": "Site web :",
+      "namelink01": "Mairie de Villeurbanne",
+      "links02": "",
+      "typelink02": "",
+      "namelink02": ""
+    }
+  ],
   "genesisText": [
     {
       "content": "A l’ADCT, nous croyons que la coopération des villes et des campagnes peut apporter des solutions à nos défis climatiques et sociaux, elles ont la capacité de se protéger mutuellement et de réduire les inégalités croissantes. Nous travaillons à mobiliser les forces de chaque territoire pour apporter des solutions à des problématiques partagées (décrochage de la jeunesse, emploi, accès à la culture, à une alimentation durable…).\n\nNous mettons en lien les associations, les entreprises, les collectivités et les habitants de deux territoires et nous les accompagnons pour imaginer des actions concrètes. En favorisant des rencontres et des projets communs entre territoires, l’ADCT vise à faciliter une compréhension accrue des enjeux et des réalités des habitants, qui contribue à l’émergence d’une nouvelle relation ville-campagne qui résiste au repli sur soi.\n\nNotre action s’inscrit entre Le Teil, une commune d’Ardèche de 9000 habitants, et Villeurbanne, ville de 160 000 habitants au sein de la métropole de Lyon. Malgré leur différence de taille, et leur éloignement,XXXXX\n\nPartager nos apprentissages – recherche",
@@ -325,16 +652,12 @@
       "content": "A l’ADCT, bis nous croyons que la coopération des villes et des campagnes\n        peut apporter des solutions à nos défis climatiques et sociaux, elles\n        ont la capacité de se protéger mutuellement et de réduire les inégalités\n        croissantes. Nous travaillons à mobiliser les forces de chaque\n        territoire pour apporter des solutions à des problématiques partagées\n        (décrochage de la jeunesse, emploi, accès à la culture, à une\n        alimentation durable…).\n        <br />\n        <br />\n        Nous mettons en lien les associations, les entreprises, les\n        collectivités et les habitants de deux territoires et nous les\n        accompagnons pour imaginer des actions concrètes. En favorisant des\n        rencontres et des projets communs entre territoires, l’ADCT vise à\n        faciliter une compréhension accrue des enjeux et des réalités des\n        habitants, qui contribue à l’émergence d’une nouvelle relation\n        ville-campagne qui résiste au repli sur soi.\n        <br />\n        <br />\n        Notre action s’inscrit entre Le Teil, une commune d’Ardèche de 9000\n        habitants, et Villeurbanne, ville de 160 000 habitants au sein de la\n        métropole de Lyon. Malgré leur différence de taille, et leur\n        éloignement,XXXXX\n        <br />\n        <br />\n        Partager nos apprentissages – recherche"
     }
   ],
-  "carouselImages": [
+  "user": [
     {
-      "id": 1,
-      "src": "images/photos/carousel/team/AdobeStock_277443017.jpeg",
-      "alt": "Team 1"
-    },
-    {
-      "id": 2,
-      "src": "images/photos/carousel/team/AdobeStock_336269917.jpeg",
-      "alt": "Team 2"
+      "id": "admin",
+      "name": "Julien",
+      "password": "$2b$10$LZSdH5P131sL4I7ZVqOU7OCQut5GKHByVtWXFu6erfO9zmeTagXPC",
+      "role": "admin"
     }
   ]
 }

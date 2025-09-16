@@ -19,8 +19,10 @@ export default function Places({ isNavbarHovered }) {
   useEffect(() => {
     const fetchCitiesProjects = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/citiesProjects");
-        setCitiesProjects(response.data);
+        const response = await axios.get(
+          "/Datas.json"
+        );
+        setCitiesProjects(response.data.citiesProjects);
       } catch (error) {
         console.error("Error fetching cities projects:", error);
       }
@@ -50,7 +52,7 @@ export default function Places({ isNavbarHovered }) {
                 <ProjectLayout
                   key={item.id}
                   title={item.title}
-                  photo={item.photo}
+                  photo={item.src}
                   alt={item.alt}
                   size={item.size}
                   subtitle={item.subtitle}

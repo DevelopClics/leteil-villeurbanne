@@ -14,7 +14,7 @@ export default function ReasonComp() {
       try {
         const response = await axios.get("http://localhost:3001/reasonText/1");
         setReasonText(response.data.content);
-        setEditedText(response.data.content);
+        setEditedText(response.data.content.replace(/<br\s*\/?>/gi, '\n'));
       } catch (error) {
         console.error("Error fetching reason text:", error);
       }
@@ -29,9 +29,10 @@ export default function ReasonComp() {
   const handleSaveClick = async () => {
     try {
       const token = localStorage.getItem("token");
+      const textToSave = editedText.replace(/\n/g, '<br />');
       await axios.put(
         "http://localhost:3001/reasonText/1",
-        { content: editedText },
+        { content: textToSave },
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -77,7 +78,7 @@ export default function ReasonComp() {
               Modifier le texte
             </button>
           )}
-          {reasonText}
+          <span dangerouslySetInnerHTML={{ __html: reasonText.replace(/\n/g, '<br />') }} />
         </p>
       )}
     </>

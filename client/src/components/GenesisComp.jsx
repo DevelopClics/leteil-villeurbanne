@@ -79,7 +79,7 @@ export default function GenesisComp() {
               Modifier le texte
             </button>
           )}
-          {genesisText}
+          <span dangerouslySetInnerHTML={{ __html: genesisText.replace(/\n/g, '<br />') }} />
         </p>
       )}
     </>

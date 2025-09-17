@@ -36,11 +36,11 @@ export default function AllProj({ isNavbarHovered }) {
             headers["Authorization"] = `Bearer ${token}`;
           }
         }
-        const response = await fetch("http://localhost:3001/allProjects", {
+        const response = await fetch("http://localhost:3001/projects", {
           headers,
         });
         if (!response.ok) {
-          const errorText = await response.text(); // Read the response as text
+          const errorText = await response.text();
           throw new Error(
             `HTTP error! status: ${response.status}, message: ${errorText}`
           );
@@ -72,9 +72,9 @@ export default function AllProj({ isNavbarHovered }) {
             <Col>
               <h2>{SUB}</h2>
               <Row className="g-4">
-                {allProjects.map((item, index) => (
+                {allProjects.map((item) => (
                   <Col
-                    key={item.id}
+                    key={`${item.category}-${item.id}`}
                     xs={XS}
                     sm={SM}
                     md={MD}
@@ -102,139 +102,6 @@ export default function AllProj({ isNavbarHovered }) {
                     </div>
                   </Col>
                 ))}
-
-                {/* <Col xs={XS} sm={SM} md={MD} lg={LG} xl={XL} xxl={XXL}>
-                  <div className="square-img-container">
-                    <div className="project-category-label">Alimentation</div>
-                    <img
-                      src="/images/photos/carousel/projects/AdobeStock_318346130.jpeg"
-                      alt="Logo"
-                      className="square-img"
-                    />
-                    <div className="project-info-box">
-                      <h4 className="project-info-title">LE TITRE DU PROJET</h4>
-                      <p className="project-info-text">
-                        Un tout petit descriptif vraiment pas long du tout
-                      </p>
-                    </div>
-                  </div>
-                </Col> */}
-
-                {/* <Col xs={XS} sm={SM} md={MD} lg={LG} xl={XL} xxl={XXL}>
-                  <div className="square-img-container">
-                    <div className="project-category-label">Culture</div>
-                    <img
-                      src="/images/photos/carousel/projects/AdobeStock_318346130.jpeg"
-                      alt="Logo"
-                      className="square-img"
-                    />
-                    <div className="project-info-box">
-                      <h4 className="project-info-title">LE TITRE DU PROJET</h4>
-                      <p className="project-info-text">
-                        Un tout petit descriptif vraiment pas long du tout
-                      </p>
-                    </div>
-                  </div>
-                </Col> */}
-
-                {/* <Col xs={XS} sm={SM} md={MD} lg={LG} xl={XL} xxl={XXL}>
-                  <div className="square-img-container">
-                    <div className="project-category-label">Economie</div>
-                    <img
-                      src="/images/photos/carousel/projects/AdobeStock_318346130.jpeg"
-                      alt="Logo"
-                      className="square-img"
-                    />
-                    <div className="project-info-box">
-                      <h4 className="project-info-title">LE TITRE DU PROJET</h4>
-                      <p className="project-info-text">
-                        Un tout petit descriptif vraiment pas long du tout
-                      </p>
-                    </div>
-                  </div>
-                </Col> */}
-
-                {/* <Col xs={XS} sm={SM} md={MD} lg={LG} xl={XL} xxl={XXL}>
-                  {" "}
-                  <div className="square-img-container">
-                    <div className="project-category-label">Jeunesse</div>
-                    <img
-                      src="/images/photos/carousel/projects/AdobeStock_318346130.jpeg"
-                      alt="Logo"
-                      className="square-img"
-                    />
-                    <div className="project-info-box">
-                      <h4 className="project-info-title">LE TITRE DU PROJET</h4>
-                      <p className="project-info-text">
-                        Un tout petit descriptif vraiment pas long du tout
-                      </p>
-                    </div>
-                  </div>
-                </Col> */}
-                {/* <Col xs={XS} sm={SM} md={MD} lg={LG} xl={XL} xxl={XXL}>
-                  <div className="square-img-container">
-                    <div className="project-category-label">Alimentation</div>
-                    <img
-                      src="/images/photos/carousel/projects/AdobeStock_318346130.jpeg"
-                      alt="Logo"
-                      className="square-img"
-                    />
-                    <div className="project-info-box">
-                      <h4 className="project-info-title">LE TITRE DU PROJET</h4>
-                      <p className="project-info-text">
-                        Un tout petit descriptif vraiment pas long du tout
-                      </p>
-                    </div>
-                  </div>
-                </Col> */}
-                {/* <Col xs={XS} sm={SM} md={MD} lg={LG} xl={XL} xxl={XXL}>
-                  <div className="square-img-container">
-                    <div className="project-category-label">Alimentation</div>
-                    <img
-                      src="/images/photos/carousel/projects/AdobeStock_318346130.jpeg"
-                      alt="Logo"
-                      className="square-img"
-                    />
-                    <div className="project-info-box">
-                      <h4 className="project-info-title">LE TITRE DU PROJET</h4>
-                      <p className="project-info-text">
-                        Un tout petit descriptif vraiment pas long du tout
-                      </p>
-                    </div>
-                  </div>
-                </Col> */}
-                {/* <Col xs={XS} sm={SM} md={MD} lg={LG} xl={XL} xxl={XXL}>
-                  <div className="square-img-container">
-                    <div className="project-category-label">Alimentation</div>
-                    <img
-                      src="/images/photos/carousel/projects/AdobeStock_318346130.jpeg"
-                      alt="Logo"
-                      className="square-img"
-                    />
-                    <div className="project-info-box">
-                      <h4 className="project-info-title">LE TITRE DU PROJET</h4>
-                      <p className="project-info-text">
-                        Un tout petit descriptif vraiment pas long du tout
-                      </p>
-                    </div>
-                  </div>
-                </Col> */}
-                {/* <Col xs={XS} sm={SM} md={MD} lg={LG} xl={XL} xxl={XXL}>
-                  <div className="square-img-container">
-                    <div className="project-category-label">Culture</div>
-                    <img
-                      src="/images/photos/carousel/projects/AdobeStock_318346130.jpeg"
-                      alt="Logo"
-                      className="square-img"
-                    />
-                    <div className="project-info-box">
-                      <h4 className="project-info-title">LE TITRE DU PROJET</h4>
-                      <p className="project-info-text">
-                        Un tout petit descriptif vraiment pas long du tout
-                      </p>
-                    </div>
-                  </div>
-                </Col> */}
               </Row>
             </Col>
           </Row>

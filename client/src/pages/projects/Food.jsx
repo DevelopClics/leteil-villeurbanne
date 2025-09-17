@@ -28,13 +28,17 @@ export default function Food({ isNavbarHovered }) {
             headers["Authorization"] = `Bearer ${token}`;
           }
         }
-        const response = await fetch("http://localhost:3001/foodProjects", { headers });
+        const response = await fetch("http://localhost:3001/projects", {
+          headers,
+        });
         if (!response.ok) {
           const errorText = await response.text(); // Read the response as text
-          throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
+          throw new Error(
+            `HTTP error! status: ${response.status}, message: ${errorText}`
+          );
         }
         const data = await response.json();
-        setFoodProjects(data);
+        setFoodProjects(data.filter(project => project.category === "food"));
       } catch (error) {
         console.error("Error fetching food projects:", error);
       }

@@ -23,13 +23,13 @@ export default function Culture({ isNavbarHovered }) {
             headers["Authorization"] = `Bearer ${token}`;
           }
         }
-        const response = await fetch("http://localhost:3001/cultureProjects", { headers });
+        const response = await fetch("http://localhost:3001/projects", { headers });
         if (!response.ok) {
           const errorText = await response.text(); // Read the response as text
           throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
         }
         const data = await response.json();
-        setProjects(data);
+        setProjects(data.filter(project => project.category === "culture"));
       } catch (error) {
         console.error("Error fetching projects:", error);
       }

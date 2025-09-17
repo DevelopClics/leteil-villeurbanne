@@ -36,6 +36,7 @@ server.use((req, res, next) => {
     '/economyProjects',
     '/allProjects',
     '/places',
+    '/projects',
   ];
 
   if (publicPaths.includes(req.path)) {
@@ -70,26 +71,7 @@ server.use((req, res, next) => {
 });
 
 // Explicit routes for projects that were returning 404
-server.get("/allProjects", (req, res) => {
-  const db = JSON.parse(fs.readFileSync(path.join(__dirname, 'db.json'), 'utf8'));
-  res.json(db.allProjects);
-});
 
-server.get("/foodProjects", (req, res) => {
-  const db = JSON.parse(fs.readFileSync(path.join(__dirname, 'db.json'), 'utf8'));
-  console.log("Sending foodProjects:", db.foodProjects); // Add this line
-  res.json(db.foodProjects);
-});
-
-server.get("/economyProjects", (req, res) => {
-  const db = JSON.parse(fs.readFileSync(path.join(__dirname, 'db.json'), 'utf8'));
-  res.json(db.economyProjects);
-});
-
-server.get("/youthProjects", (req, res) => {
-  const db = JSON.parse(fs.readFileSync(path.join(__dirname, 'db.json'), 'utf8'));
-  res.json(db.youthProjects);
-});
 
 server.get("/citiesProjects", (req, res) => {
   const citiesProjects = router.db.get("citiesProjects").value();

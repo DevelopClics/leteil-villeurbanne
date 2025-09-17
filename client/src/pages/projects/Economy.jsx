@@ -28,13 +28,13 @@ export default function Economy({ isNavbarHovered }) {
             headers["Authorization"] = `Bearer ${token}`;
           }
         }
-        const response = await fetch("http://localhost:3001/economyProjects", { headers });
+        const response = await fetch("http://localhost:3001/projects", { headers });
         if (!response.ok) {
           const errorText = await response.text(); // Read the response as text
           throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
         }
         const data = await response.json();
-        setEconomyProjects(data);
+        setEconomyProjects(data.filter(project => project.category === "economy"));
       } catch (error) {
         console.error("Error fetching economy projects:", error);
       }

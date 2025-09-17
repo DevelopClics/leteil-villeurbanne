@@ -28,13 +28,13 @@ export default function Youth({ isNavbarHovered }) {
             headers["Authorization"] = `Bearer ${token}`;
           }
         }
-        const response = await fetch("http://localhost:3001/youthProjects", { headers });
+        const response = await fetch("http://localhost:3001/projects", { headers });
         if (!response.ok) {
           const errorText = await response.text(); // Read the response as text
           throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
         }
         const data = await response.json();
-        setYouthProjects(data);
+        setYouthProjects(data.filter(project => project.category === "youth"));
       } catch (error) {
         console.error("Error fetching youth projects:", error);
       }

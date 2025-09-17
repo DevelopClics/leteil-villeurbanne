@@ -360,7 +360,6 @@
       "id": 11
     }
   ],
-
   "citiesProjects": [
     {
       "id": 1,
@@ -455,7 +454,7 @@
     {
       "id": 1,
       "category": "culture",
-      "title": "Semaine de Musique d’ensemble ",
+      "title": "Semaine de Musique d’ensemble  !",
       "shortext": "Un tout petit descriptif vraiment pas long du tout",
       "src": "images/photos/projects/culture/AdobeStock_128079957.jpeg",
       "alt": "alt",
@@ -468,7 +467,8 @@
       "namelink01": "Cefedem | centre de ressources professionnelles et d'enseignement supérieur artistique",
       "links02": "https://youtu.be/xWWm5XjZgzo?si=3i2eCGL20DG0XEYH",
       "typelink02": "",
-      "namelink02": "Vidéo des restitutions musicales"
+      "namelink02": "Vidéo des restitutions musicales",
+      "cacheBust": 1758120604456
     },
     {
       "id": 2,
@@ -488,7 +488,6 @@
       "typelink02": "",
       "namelink02": " Bienvenue au TiLT - Tiers-Lieu Culturel - Le Teil - Ardèche"
     },
-
     {
       "id": 3,
       "category": "food",
@@ -507,11 +506,10 @@
       "typelink02": "Vidéo :",
       "namelink02": "8ème édition des ateliers cuisine"
     },
-
     {
       "id": 4,
       "category": "youth",
-      "title": "Vis ma vie ",
+      "title": "Vis ma vie !",
       "shortext": "Un tout petit descriptif vraiment pas long du tout",
       "src": "images/photos/projects/youth/AdobeStock_244627948.jpeg",
       "alt": "alt",
@@ -521,7 +519,8 @@
       "contacts": "Contacts : mqb@mairie-villeurbanne.fr",
       "links01": "https://www.facebook.com/lesclefscsc/",
       "typelink01": " - Facebook : ",
-      "namelink01": "Les CLEFS"
+      "namelink01": "Les CLEFS",
+      "cacheBust": 1758120917541
     },
     {
       "id": 5,
@@ -617,7 +616,6 @@
       "links01": "https://afev.org/auvergne-rhone-alpes/grand-lyon",
       "namelink01": "AFEV"
     },
-
     {
       "id": 12,
       "category": "economy",

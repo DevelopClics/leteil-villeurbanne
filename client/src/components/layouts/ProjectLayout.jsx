@@ -4,7 +4,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import "../../App.css";
 
-export default function ProjectLayout({ item, isEditable = false, onUpdate }) {
+export default function ProjectLayout({ item, isEditable = false, onUpdate, onBackClick, backButtonText }) {
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState(item);
   const [selectedFile, setSelectedFile] = useState(null);
@@ -197,7 +197,7 @@ export default function ProjectLayout({ item, isEditable = false, onUpdate }) {
         </Form>
       ) : (
         <>
-          <h4>{item.title}</h4>
+          <h4 style={{ color: 'var(--primary-color)' }}>{item.title}</h4>
           <hr />
           <div>
             <div
@@ -235,7 +235,7 @@ export default function ProjectLayout({ item, isEditable = false, onUpdate }) {
                 </a>
               </strong>
             </p>
-            {isEditable && (
+            {isEditable && onUpdate && (
               <div className="d-flex justify-content-end">
                 <Button
                   variant="warning"
@@ -246,7 +246,12 @@ export default function ProjectLayout({ item, isEditable = false, onUpdate }) {
                 </Button>
               </div>
             )}
-          </div>
+          </div> {/* End of main content block */}
+          {onBackClick && backButtonText && (
+            <Button className="btn-main-blue mt-3 text-start d-block" onClick={onBackClick}>
+              {backButtonText}
+            </Button>
+          )}
         </>
       )}
     </div>

@@ -8,7 +8,7 @@ import { AuthProvider } from './context/AuthContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter basename={import.meta.env.PROD ? "/front-leteil-villeurbanne/" : "/"}>
+    <BrowserRouter basename="/">
       <AuthProvider>
         <App />
       </AuthProvider>

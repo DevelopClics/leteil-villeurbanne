@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
 import "../../App.css";
@@ -15,6 +15,7 @@ export default function Culture({ isNavbarHovered }) {
   const { isAuthenticated } = useAuth();
   const [projects, setProjects] = useState([]);
   const [singleProject, setSingleProject] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -54,6 +55,44 @@ export default function Culture({ isNavbarHovered }) {
     fetchProjects();
   }, [isAuthenticated, id]);
 
+  const handleUpdateProject = async (projectId, updatedData) => {
+    try {
+      const headers = {
+        "Content-Type": "application/json",
+      };
+      if (isAuthenticated) {
+        const token = localStorage.getItem("token");
+        if (token) {
+          headers["Authorization"] = `Bearer ${token}`;
+        }
+      }
+      const response = await fetch(`http://localhost:3001/projects/${projectId}`, {
+        method: "PUT",
+        headers,
+        body: JSON.stringify(updatedData),
+      });
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
+      }
+      const updatedProject = await response.json();
+
+      // Update the single project state if in single view
+      if (id) {
+        setSingleProject(updatedProject);
+      } else {
+        // Update the list of projects if in list view
+        setProjects(prevProjects =>
+          prevProjects.map(project =>
+            project.id === projectId ? updatedProject : project
+          )
+        );
+      }
+    } catch (error) {
+      console.error("Error updating project:", error);
+    }
+  };
+
   return (
     <>
       <CarouselComponent
@@ -75,6 +114,9 @@ export default function Culture({ isNavbarHovered }) {
                   key={singleProject.id}
                   item={singleProject}
                   isEditable={isAuthenticated}
+                  onBackClick={() => navigate('/all-projects')}
+                  backButtonText="Revenir à tous les projets"
+                  onUpdate={handleUpdateProject}
                 />
               ) : (
                 projects.map((item) => (
@@ -82,6 +124,7 @@ export default function Culture({ isNavbarHovered }) {
                     key={item.id}
                     item={item}
                     isEditable={isAuthenticated}
+                    onUpdate={handleUpdateProject}
                   />
                 ))
               )}

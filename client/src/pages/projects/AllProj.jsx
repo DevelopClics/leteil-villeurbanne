@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import { useAuth } from "../../context/AuthContext";
 import "../../App.css";
@@ -26,6 +26,7 @@ export default function AllProj({ isNavbarHovered }) {
 
   const { isAuthenticated } = useAuth();
   const [allProjects, setAllProjects] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAllProjects = async () => {
@@ -83,26 +84,29 @@ export default function AllProj({ isNavbarHovered }) {
                     xl={XL}
                     xxl={XXL}
                   >
-                    <Link to={`/${item.category.toLowerCase()}/${item.id}`}>
-                      <div className="square-img-container">
-                        <div className="project-category-label">
-                          {item.category}
-                        </div>
-
-                        <LazyLoadImage
-                          wrapperClassName="square-img"
-                          src={`${import.meta.env.BASE_URL}${item.src}`}
-                          alt={item.alt}
-                          effect="blur"
-                          width="100%"
-                          height="100%"
-                        />
-                        <div className="project-info-box">
-                          <h4 className="project-info-title">{item.title}</h4>
-                          <p className="project-info-text">{item.text}</p>
-                        </div>
+                    <div
+                      className="square-img-container"
+                      onClick={() => navigate(`/${item.category.toLowerCase()}/${item.id}`)}
+                      style={{ cursor: 'pointer' }}
+                    >
+                      {console.log('Navigating to:', `/${item.category.toLowerCase()}/${item.id}`)}
+                      <div className="project-category-label">
+                        {item.category}
                       </div>
-                    </Link>
+
+                      <LazyLoadImage
+                        wrapperClassName="square-img"
+                        src={`${import.meta.env.BASE_URL}${item.src}`}
+                        alt={item.alt}
+                        effect="blur"
+                        width="100%"
+                        height="100%"
+                      />
+                      <div className="project-info-box">
+                        <h4 className="project-info-title">{item.title}</h4>
+                        <p className="project-info-text">{item.text}</p>
+                      </div>
+                    </div>
                   </Col>
                 ))}
               </Row>

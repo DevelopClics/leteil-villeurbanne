@@ -1,6 +1,6 @@
 import { Container, Row, Col, Pagination } from "react-bootstrap";
 import { useState, useRef, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import "../../App.css";
 import CarouselComponent from "../../components/Carousel/Carousel";
@@ -20,6 +20,9 @@ export default function Food({ isNavbarHovered }) {
   const { isAuthenticated } = useAuth();
   const [foodProjects, setFoodProjects] = useState([]);
   const [singleProject, setSingleProject] = useState(null);
+  const navigate = useNavigate();
+
+  console.log('id:', id, 'singleProject:', singleProject);
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -40,6 +43,7 @@ export default function Food({ isNavbarHovered }) {
             throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
           }
           const data = await response.json();
+          console.log('Fetched single project data:', data);
           setSingleProject(data);
         } else {
           // Fetch all food projects
@@ -71,6 +75,44 @@ export default function Food({ isNavbarHovered }) {
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
     projectsRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleUpdateProject = async (projectId, updatedData) => {
+    try {
+      const headers = {
+        "Content-Type": "application/json",
+      };
+      if (isAuthenticated) {
+        const token = localStorage.getItem("token");
+        if (token) {
+          headers["Authorization"] = `Bearer ${token}`;
+        }
+      }
+      const response = await fetch(`http://localhost:3001/projects/${projectId}`, {
+        method: "PUT",
+        headers,
+        body: JSON.stringify(updatedData),
+      });
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
+      }
+      const updatedProject = await response.json();
+
+      // Update the single project state if in single view
+      if (id) {
+        setSingleProject(updatedProject);
+      } else {
+        // Update the list of projects if in list view
+        setFoodProjects(prevProjects =>
+          prevProjects.map(project =>
+            project.id === projectId ? updatedProject : project
+          )
+        );
+      }
+    } catch (error) {
+      console.error("Error updating project:", error);
+    }
   };
 
   return (
@@ -109,6 +151,9 @@ export default function Food({ isNavbarHovered }) {
                   key={singleProject.id}
                   item={singleProject}
                   isEditable={isAuthenticated}
+                  onBackClick={() => navigate('/all-projects')}
+                  backButtonText="Revenir à tous les projets"
+                  onUpdate={handleUpdateProject}
                 />
               ) : (
                 currentProjects.map((item) => (
@@ -116,6 +161,7 @@ export default function Food({ isNavbarHovered }) {
                     key={item.id}
                     item={item}
                     isEditable={isAuthenticated}
+                    onUpdate={handleUpdateProject}
                   />
                 ))
               )}

@@ -248,10 +248,26 @@ function App() {
         />
 
         <Route
+          path="/culture/:id"
+          element={
+            <Suspense fallback={<div>Chargement…</div>}>
+              <Culture isNavbarHovered={isNavbarHovered} />
+            </Suspense>
+          }
+        />
+        <Route
           path="/culture"
           element={
             <Suspense fallback={<div>Chargement…</div>}>
               <Culture isNavbarHovered={isNavbarHovered} />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/food/:id"
+          element={
+            <Suspense fallback={<div>Chargement…</div>}>
+              <Food isNavbarHovered={isNavbarHovered} />
             </Suspense>
           }
         />
@@ -264,6 +280,14 @@ function App() {
           }
         />
         <Route
+          path="/youth/:id"
+          element={
+            <Suspense fallback={<div>Chargement…</div>}>
+              <Youth isNavbarHovered={isNavbarHovered} />
+            </Suspense>
+          }
+        />
+        <Route
           path="/youth"
           element={
             <Suspense fallback={<div>Chargement…</div>}>
@@ -272,7 +296,7 @@ function App() {
           }
         />
         <Route
-          path="/economy"
+          path="/economy/:id"
           element={
             <Suspense fallback={<div>Chargement…</div>}>
               <Economy isNavbarHovered={isNavbarHovered} />

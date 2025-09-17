@@ -56,6 +56,9 @@ const CreateProduct = lazy(() =>
 
 // import EditProduct from "./pages/admin/products/EditProduct";
 const EditProduct = lazy(() => import("./pages/admin/products/EditProduct"));
+const PlaceListAdmin = lazy(() => import("./pages/admin/places/PlaceListAdmin"));
+const EditPlace = lazy(() => import("./pages/admin/places/EditPlace"));
+const CreatePlace = lazy(() => import("./pages/admin/places/CreatePlace"));
 // import Login from "./pages/admin/Login";
 const Login = lazy(() => import("./pages/admin/Login"));
 
@@ -149,6 +152,30 @@ function App() {
             element={
               <Suspense fallback={<div>Chargement…</div>}>
                 <EditProduct />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/admin/places"
+            element={
+              <Suspense fallback={<div>Chargement…</div>}>
+                <PlaceListAdmin />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/admin/places/edit/:id"
+            element={
+              <Suspense fallback={<div>Chargement…</div>}>
+                <EditPlace />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/admin/places/create"
+            element={
+              <Suspense fallback={<div>Chargement…</div>}>
+                <CreatePlace />
               </Suspense>
             }
           />

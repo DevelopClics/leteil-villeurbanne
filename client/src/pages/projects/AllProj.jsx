@@ -36,10 +36,14 @@ export default function AllProj({ isNavbarHovered }) {
             headers["Authorization"] = `Bearer ${token}`;
           }
         }
-        const response = await fetch("http://localhost:3001/allProjects", { headers });
+        const response = await fetch("http://localhost:3001/allProjects", {
+          headers,
+        });
         if (!response.ok) {
           const errorText = await response.text(); // Read the response as text
-          throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
+          throw new Error(
+            `HTTP error! status: ${response.status}, message: ${errorText}`
+          );
         }
         const data = await response.json();
         setAllProjects(data);

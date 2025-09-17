@@ -91,19 +91,8 @@ export default function Food({ isNavbarHovered }) {
               {currentProjects.map((item) => (
                 <ProjectLayout
                   key={item.id}
-                  title={item.title}
-                  photo={item.src}
-                  alt={item.alt}
-                  size={item.size}
-                  subtitle={item.subtitle}
-                  article={item.article}
-                  contacts={item.contacts}
-                  links01={item.links01}
-                  typelink01={item.typelink01}
-                  namelink01={item.namelink01}
-                  links02={item.links02}
-                  typelink02={item.typelink02}
-                  namelink02={item.namelink02}
+                  item={item}
+                  isEditable={isAuthenticated}
                 />
               ))}
               <div className="d-flex justify-content-center mt-4">

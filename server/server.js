@@ -35,6 +35,7 @@ server.use((req, res, next) => {
     '/youthProjects',
     '/economyProjects',
     '/allProjects',
+    '/places',
   ];
 
   if (publicPaths.includes(req.path)) {
@@ -219,6 +220,8 @@ server.put("/carouselImages", (req, res) => {
   res.status(200).json(updatedCarouselImages);
 });
 
+
+
 // PUT route for updating a team member by category and id
 server.get("/teammembers", (req, res) => {
   const teammembers = router.db.get("teammembers").value();
@@ -342,14 +345,83 @@ const carouselStorage = multer.diskStorage({
 });
 const carouselUpload = multer({ storage: carouselStorage });
 
-// Upload route for carousel images
-server.post("/upload/carousel", carouselUpload.single("image"), (req, res) => {
-  if (!req.file) {
-    return res.status(400).json({ message: "No file uploaded." });
-  }
-  const fileUrl = `images/photos/carousel/${req.file.filename}`;
-  res.json({ url: fileUrl });
+// Multer setup for places image uploads
+const placesUploadsDir = path.join(__dirname, '..', 'client', 'public', 'images', 'photos', 'places');
+if (!fs.existsSync(placesUploadsDir)) {
+  fs.mkdirSync(placesUploadsDir, { recursive: true });
+}
+const placesStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, placesUploadsDir);
+  },
+  filename: (req, file, cb) => {
+    cb(null, `${Date.now()}-${file.originalname}`);
+  },
 });
+const placesUpload = multer({ storage: placesStorage });
+
+
+
+
+
+// POST route for creating a new place with image upload
+server.post("/places", placesUpload.single("image"), (req, res, next) => {
+  if (req.file) {
+    req.body.photo = `/images/photos/places/${req.file.filename}`;
+  }
+  // Convert contacts and links from stringified JSON back to arrays/objects
+  if (req.body.contacts) {
+    req.body.contacts = JSON.parse(req.body.contacts);
+  }
+  if (req.body.links) {
+    req.body.links = JSON.parse(req.body.links);
+  }
+  // Let json-server handle the rest
+  next();
+});
+
+// PUT route for updating a place with image upload
+server.put("/places/:id", placesUpload.single("image"), (req, res) => {
+  const placeId = parseInt(req.params.id, 10);
+  const db = router.db; // lowdb instance
+  const places = db.get("places");
+
+  let place = places.find({ id: placeId }).value();
+
+  if (!place) {
+    return res.status(404).json({ message: "Place not found" });
+  }
+
+  const updatedPlaceData = { ...req.body };
+
+  if (req.file) {
+    updatedPlaceData.photo = `/images/photos/places/${req.file.filename}`;
+  }
+
+  if (updatedPlaceData.contacts) {
+    try {
+      updatedPlaceData.contacts = JSON.parse(updatedPlaceData.contacts);
+    } catch (e) {
+      // Keep as string if parsing fails
+    }
+  }
+
+  if (updatedPlaceData.links) {
+    try {
+      updatedPlaceData.links = JSON.parse(updatedPlaceData.links);
+    } catch (e) {
+      // Keep as string if parsing fails
+    }
+  }
+
+  // Merge existing place data with updated data
+  const newPlace = { ...place, ...updatedPlaceData };
+
+  places.find({ id: placeId }).assign(newPlace).write();
+
+  res.json(newPlace);
+});
+
 
 server.use(router);
 

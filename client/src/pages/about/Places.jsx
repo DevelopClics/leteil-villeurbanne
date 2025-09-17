@@ -16,20 +16,40 @@ export default function Places({ isNavbarHovered }) {
   const { isAuthenticated } = useAuth();
   const [citiesProjects, setCitiesProjects] = useState([]);
 
-  useEffect(() => {
-    const fetchCitiesProjects = async () => {
-      try {
-        const response = await axios.get(
-          "/Datas.json"
-        );
-        setCitiesProjects(response.data.citiesProjects);
-      } catch (error) {
-        console.error("Error fetching cities projects:", error);
-      }
-    };
+  const fetchCitiesProjects = async () => {
+    try {
+      const response = await axios.get("http://localhost:3001/places");
+      setCitiesProjects(response.data);
+      console.log("Fetched cities projects:", response.data);
+    } catch (error) {
+      console.error("Error fetching cities projects:", error);
+    }
+  };
 
+  useEffect(() => {
     fetchCitiesProjects();
   }, []);
+
+  const handleUpdatePlace = async (id, updatedPlace) => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await axios.put(
+        `http://localhost:3001/places/${id}`,
+        updatedPlace,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (response.status === 200) {
+        fetchCitiesProjects(); // Re-fetch data to update the list
+      }
+    } catch (error) {
+      console.error("Error updating place:", error);
+    }
+  };
 
   return (
     <>
@@ -51,19 +71,9 @@ export default function Places({ isNavbarHovered }) {
               {(citiesProjects || []).map((item) => (
                 <ProjectLayout
                   key={item.id}
-                  title={item.title}
-                  photo={item.src}
-                  alt={item.alt}
-                  size={item.size}
-                  subtitle={item.subtitle}
-                  article={item.article}
-                  contacts={item.contacts}
-                  links01={item.links01}
-                  typelink01={item.typelink01}
-                  namelink01={item.namelink01}
-                  links02={item.links02}
-                  typelink02={item.typelink02}
-                  namelink02={item.namelink02}
+                  item={item}
+                  isEditable={isAuthenticated}
+                  onUpdate={handleUpdatePlace}
                 />
               ))}
 
